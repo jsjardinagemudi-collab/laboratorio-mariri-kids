@@ -1,0 +1,36 @@
+ECOVIDA KIDS — PROJETO V3
+
+PÁGINAS
+- ecovida-kids.html: página inicial
+- jornada-21-dias.html: cronograma de atividades
+- animais.html: catálogo com 40 animais
+- plantas.html: catálogo com 43 plantas
+- descobertas.html: pontos e insígnias
+- diario.html: diário histórico por data, com edição, exclusão, impressão e fotos
+
+PASTAS IMPORTANTES
+- assets/css/style.css
+- assets/js/common.js
+- assets/js/diario-db.js
+- imagens/ecovida-kids-capa.jpg
+- imagens/animais/
+- imagens/plantas/
+
+COMO PUBLICAR NO GITHUB
+Envie os arquivos e as pastas mantendo exatamente a estrutura acima.
+As páginas HTML devem ficar na raiz do repositório.
+
+ARMAZENAMENTO
+- Pontos e marcadores: localStorage do navegador.
+- Diário e fotos: IndexedDB do navegador.
+- Os dados permanecem neste aparelho e neste navegador.
+- Limpar dados do navegador pode apagar os registros.
+- Para sincronizar entre aparelhos, uma futura versão deve usar Google Sheets/Apps Script ou banco de dados.
+
+FOTOS
+As fotos do diário são armazenadas no próprio navegador.
+Evite enviar muitas fotos em resolução muito alta para não ocupar espaço excessivo.
+
+IMAGENS DOS CATÁLOGOS
+Os SVGs atuais são cartões ilustrativos.
+Eles podem ser substituídos por fotografias mantendo o mesmo nome e caminho.

@@ -1,0 +1,1641 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="EcoVida Kids — jornada familiar de 21 dias com natureza, aprendizado, valores e conexão entre pais e filhos." />
+  <meta name="theme-color" content="#167A3A" />
+  <title>EcoVida Kids | Jornada Familiar de 21 Dias</title>
+
+  <style>
+    :root {
+      --verde-escuro: #167A3A;
+      --verde: #2F9650;
+      --verde-claro: #66BB6A;
+      --verde-suave: #EAF7EC;
+      --azul: #114084;
+      --turquesa: #26A69A;
+      --amarelo: #F6C453;
+      --laranja: #F08C46;
+      --rosa: #D63384;
+      --texto: #1E2A22;
+      --texto-suave: #5E6D63;
+      --branco: #FFFFFF;
+      --fundo: #F6FAF7;
+      --borda: #DCEADF;
+      --sombra: 0 14px 35px rgba(22, 122, 58, 0.12);
+      --raio: 22px;
+      --largura: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--texto);
+      background:
+        radial-gradient(circle at top left, rgba(102, 187, 106, 0.14), transparent 32%),
+        radial-gradient(circle at top right, rgba(38, 166, 154, 0.12), transparent 28%),
+        var(--fundo);
+      line-height: 1.6;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    /* Sistema de ícones EcoVida Kids */
+    .icon {
+      width: 1.25em;
+      height: 1.25em;
+      flex: 0 0 auto;
+      display: inline-block;
+      vertical-align: -0.2em;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.9;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .icon-fill {
+      fill: currentColor;
+      stroke: none;
+    }
+
+    .icon-badge {
+      width: 52px;
+      height: 52px;
+      display: grid;
+      place-items: center;
+      border-radius: 16px;
+      background: linear-gradient(145deg, #F2FBF3, #DFF3E3);
+      color: var(--verde-escuro);
+      border: 1px solid #CFE8D4;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.9);
+    }
+
+    .icon-badge .icon {
+      width: 27px;
+      height: 27px;
+    }
+
+    .activity-title {
+      display: flex !important;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .activity-title .icon {
+      width: 18px;
+      height: 18px;
+    }
+
+    .brand-mark .icon {
+      width: 28px;
+      height: 28px;
+    }
+
+    .tag .icon,
+    .btn .icon {
+      width: 18px;
+      height: 18px;
+    }
+
+    .complete-btn .icon {
+      width: 18px;
+      height: 18px;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    input {
+      font: inherit;
+    }
+
+    .container {
+      width: min(92%, var(--largura));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      background: var(--verde-escuro);
+      color: var(--branco);
+      padding: 10px 0;
+      text-align: center;
+      font-size: 0.92rem;
+      letter-spacing: 0.01em;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      backdrop-filter: blur(14px);
+      background: rgba(246, 250, 247, 0.88);
+      border-bottom: 1px solid rgba(220, 234, 223, 0.9);
+    }
+
+    .nav {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 900;
+      color: var(--verde-escuro);
+    }
+
+    .brand-mark {
+      width: 46px;
+      height: 46px;
+      display: grid;
+      place-items: center;
+      border-radius: 15px;
+      background: linear-gradient(145deg, var(--verde-claro), var(--verde-escuro));
+      color: white;
+      font-size: 1.45rem;
+      box-shadow: 0 8px 18px rgba(22, 122, 58, 0.2);
+    }
+
+    .brand small {
+      display: block;
+      color: var(--texto-suave);
+      font-weight: 700;
+      font-size: 0.72rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 22px;
+      align-items: center;
+      font-weight: 700;
+      font-size: 0.93rem;
+    }
+
+    .nav-links a:hover {
+      color: var(--verde-escuro);
+    }
+
+    .nav-cta {
+      background: var(--verde-escuro);
+      color: white !important;
+      padding: 11px 18px;
+      border-radius: 999px;
+    }
+
+    .hero {
+      padding: 72px 0 56px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 44px;
+      align-items: center;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      background: var(--verde-suave);
+      color: var(--verde-escuro);
+      border: 1px solid #CFE8D4;
+      border-radius: 999px;
+      font-weight: 800;
+      font-size: 0.88rem;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      font-size: clamp(2.4rem, 6vw, 5.2rem);
+      line-height: 0.98;
+      letter-spacing: -0.055em;
+      max-width: 760px;
+    }
+
+    h1 span {
+      color: var(--verde-escuro);
+    }
+
+    .hero p {
+      margin-top: 24px;
+      color: var(--texto-suave);
+      font-size: 1.12rem;
+      max-width: 680px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .btn {
+      border: 0;
+      cursor: pointer;
+      padding: 14px 21px;
+      border-radius: 14px;
+      font-weight: 850;
+      transition: 0.2s ease;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      gap: 9px;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      background: var(--verde-escuro);
+      color: white;
+      box-shadow: 0 10px 20px rgba(22, 122, 58, 0.2);
+    }
+
+    .btn-secondary {
+      background: white;
+      color: var(--texto);
+      border: 1px solid var(--borda);
+    }
+
+    .hero-card {
+      position: relative;
+      overflow: hidden;
+      padding: 30px;
+      border-radius: 32px;
+      color: white;
+      min-height: 510px;
+      background:
+        linear-gradient(180deg, rgba(8, 48, 24, 0.05), rgba(8, 48, 24, 0.78)),
+        url("imagens/ecovida-kids-capa.jpg") center 8%/cover,
+        linear-gradient(145deg, var(--turquesa), var(--verde-escuro));
+      box-shadow: var(--sombra);
+      display: flex;
+      align-items: flex-end;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.12);
+      top: -40px;
+      right: -25px;
+    }
+
+    .hero-card-content {
+      position: relative;
+      z-index: 2;
+      background: rgba(8, 48, 24, 0.42);
+      backdrop-filter: blur(7px);
+      padding: 22px;
+      border-radius: 22px;
+      border: 1px solid rgba(255,255,255,0.22);
+    }
+
+    .hero-card-content h2 {
+      font-size: 1.75rem;
+      line-height: 1.15;
+      margin-bottom: 8px;
+    }
+
+    .hero-card-content p {
+      color: rgba(255,255,255,0.9);
+      margin: 0;
+      font-size: 0.98rem;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin-top: 34px;
+    }
+
+    .stat {
+      background: white;
+      border: 1px solid var(--borda);
+      border-radius: 18px;
+      padding: 18px;
+      box-shadow: 0 8px 22px rgba(22,122,58,.06);
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 1.6rem;
+      color: var(--verde-escuro);
+    }
+
+    .stat span {
+      color: var(--texto-suave);
+      font-size: 0.88rem;
+      font-weight: 700;
+    }
+
+    section {
+      padding: 72px 0;
+    }
+
+    .section-head {
+      max-width: 760px;
+      margin-bottom: 34px;
+    }
+
+    .section-head.center {
+      text-align: center;
+      margin-inline: auto;
+    }
+
+    .eyebrow {
+      color: var(--verde-escuro);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+      font-size: 0.78rem;
+      margin-bottom: 8px;
+    }
+
+    h2 {
+      font-size: clamp(1.8rem, 4vw, 3.1rem);
+      line-height: 1.08;
+      letter-spacing: -0.035em;
+    }
+
+    .section-head p {
+      margin-top: 13px;
+      color: var(--texto-suave);
+      font-size: 1.03rem;
+    }
+
+    .principles {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .principle {
+      padding: 24px;
+      background: white;
+      border: 1px solid var(--borda);
+      border-radius: var(--raio);
+      box-shadow: 0 9px 25px rgba(22,122,58,.06);
+    }
+
+    .principle-icon {
+      margin-bottom: 14px;
+    }
+
+    .principle h3 {
+      margin-bottom: 7px;
+      font-size: 1.08rem;
+    }
+
+    .principle p {
+      color: var(--texto-suave);
+      font-size: 0.94rem;
+    }
+
+    .notice {
+      margin-top: 24px;
+      background: #FFF8E8;
+      border: 1px solid #F0D996;
+      border-left: 6px solid var(--amarelo);
+      border-radius: 16px;
+      padding: 18px 20px;
+      color: #5C4B22;
+    }
+
+    .journey {
+      background: linear-gradient(180deg, #F2FAF3, #FFFFFF);
+      border-block: 1px solid var(--borda);
+    }
+
+    .progress-shell {
+      position: sticky;
+      top: 76px;
+      z-index: 20;
+      background: rgba(255,255,255,.94);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--borda);
+      border-radius: 18px;
+      padding: 16px;
+      margin-bottom: 24px;
+      box-shadow: 0 10px 22px rgba(22,122,58,.08);
+    }
+
+    .progress-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 9px;
+      font-weight: 800;
+    }
+
+    .progress-bar {
+      height: 13px;
+      background: #E6EFE8;
+      border-radius: 999px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      width: 0%;
+      height: 100%;
+      background: linear-gradient(90deg, var(--verde-claro), var(--verde-escuro));
+      transition: width .35s ease;
+    }
+
+    .days-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .day-card {
+      background: white;
+      border: 1px solid var(--borda);
+      border-radius: 22px;
+      overflow: hidden;
+      box-shadow: 0 8px 22px rgba(22,122,58,.055);
+      transition: .2s ease;
+    }
+
+    .day-card.completed {
+      border-color: #83C98B;
+      box-shadow: 0 0 0 3px rgba(102,187,106,.14);
+    }
+
+    .day-card:hover {
+      transform: translateY(-3px);
+    }
+
+    .day-top {
+      padding: 18px 18px 14px;
+      display: flex;
+      gap: 13px;
+      align-items: flex-start;
+      cursor: pointer;
+    }
+
+    .day-number {
+      flex: 0 0 auto;
+      width: 46px;
+      height: 46px;
+      display: grid;
+      place-items: center;
+      background: var(--verde-suave);
+      color: var(--verde-escuro);
+      border-radius: 14px;
+      font-weight: 950;
+    }
+
+    .day-title h3 {
+      font-size: 1.03rem;
+      line-height: 1.2;
+      margin-bottom: 3px;
+    }
+
+    .day-title small {
+      color: var(--texto-suave);
+      font-weight: 700;
+    }
+
+    .day-body {
+      display: none;
+      padding: 0 18px 18px;
+    }
+
+    .day-card.open .day-body {
+      display: block;
+    }
+
+    .activity-block {
+      margin-top: 13px;
+      padding-top: 13px;
+      border-top: 1px dashed var(--borda);
+    }
+
+    .activity-block strong {
+      display: block;
+      color: var(--verde-escuro);
+      font-size: 0.88rem;
+      margin-bottom: 3px;
+    }
+
+    .activity-block p,
+    .activity-block li {
+      color: var(--texto-suave);
+      font-size: 0.92rem;
+    }
+
+    .activity-block ul {
+      padding-left: 20px;
+    }
+
+    .complete-btn {
+      margin-top: 16px;
+      width: 100%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 11px 14px;
+      border: 1px solid var(--borda);
+      background: #F8FBF9;
+      color: var(--texto);
+      border-radius: 12px;
+      font-weight: 850;
+      cursor: pointer;
+    }
+
+    .day-card.completed .complete-btn {
+      background: var(--verde-escuro);
+      color: white;
+      border-color: var(--verde-escuro);
+    }
+
+    .routine-grid,
+    .guides-grid,
+    .safety-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .info-card {
+      padding: 24px;
+      background: white;
+      border: 1px solid var(--borda);
+      border-radius: var(--raio);
+      box-shadow: 0 8px 22px rgba(22,122,58,.055);
+    }
+
+    .info-card h3 {
+      margin-bottom: 10px;
+      color: var(--verde-escuro);
+    }
+
+    .info-card ul {
+      padding-left: 20px;
+      color: var(--texto-suave);
+    }
+
+    .info-card li + li {
+      margin-top: 7px;
+    }
+
+    .parent-child {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+      align-items: stretch;
+    }
+
+    .quote-card {
+      border-radius: 28px;
+      padding: 34px;
+      color: white;
+      background:
+        linear-gradient(145deg, rgba(17,64,132,.95), rgba(38,166,154,.93));
+      box-shadow: var(--sombra);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .quote-card blockquote {
+      font-size: clamp(1.35rem, 3vw, 2.25rem);
+      line-height: 1.2;
+      font-weight: 850;
+      letter-spacing: -0.025em;
+    }
+
+    .quote-card p {
+      margin-top: 18px;
+      color: rgba(255,255,255,.86);
+    }
+
+    .journal {
+      background: white;
+      border: 1px solid var(--borda);
+      border-radius: 28px;
+      padding: 30px;
+      box-shadow: 0 9px 24px rgba(22,122,58,.06);
+    }
+
+    .journal label {
+      display: block;
+      margin-top: 14px;
+      font-weight: 850;
+      font-size: 0.91rem;
+    }
+
+    .journal textarea {
+      width: 100%;
+      min-height: 88px;
+      margin-top: 7px;
+      border: 1px solid var(--borda);
+      border-radius: 13px;
+      padding: 13px;
+      resize: vertical;
+      background: #FBFDFB;
+    }
+
+    .journal-actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 15px;
+    }
+
+    footer {
+      background: #0E3420;
+      color: white;
+      padding: 44px 0 24px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 30px;
+    }
+
+    footer p {
+      color: rgba(255,255,255,.76);
+      margin-top: 9px;
+    }
+
+    .footer-note {
+      margin-top: 30px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255,255,255,.14);
+      font-size: .86rem;
+      color: rgba(255,255,255,.64);
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid,
+      .parent-child {
+        grid-template-columns: 1fr;
+      }
+
+      .principles {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .days-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .routine-grid,
+      .guides-grid,
+      .safety-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero-card {
+        min-height: 420px;
+      }
+    }
+
+    @media (max-width: 680px) {
+      .topbar {
+        font-size: .82rem;
+      }
+
+      .hero {
+        padding-top: 48px;
+      }
+
+      .stats,
+      .principles,
+      .days-grid,
+      .routine-grid,
+      .guides-grid,
+      .safety-grid,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-actions .btn {
+        width: 100%;
+      }
+
+      .progress-meta {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      section {
+        padding: 54px 0;
+      }
+
+      .hero-card {
+        min-height: 360px;
+      }
+    }
+
+    @media print {
+      header,
+      .topbar,
+      .hero-actions,
+      .progress-shell,
+      .complete-btn,
+      .journal-actions,
+      footer {
+        display: none !important;
+      }
+
+      body {
+        background: white;
+      }
+
+      section,
+      .hero {
+        padding: 24px 0;
+      }
+
+      .day-card {
+        break-inside: avoid;
+        box-shadow: none;
+      }
+
+      .day-body {
+        display: block !important;
+      }
+
+      .days-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Biblioteca de ícones vetoriais EcoVida Kids -->
+  <svg aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden">
+    <symbol id="i-sprout" viewBox="0 0 24 24">
+      <path d="M12 21v-9"/>
+      <path d="M12 13C8.5 13 6 10.5 6 7c3.5 0 6 2.5 6 6Z"/>
+      <path d="M12 10c0-3.5 2.5-6 6-6 0 3.5-2.5 6-6 6Z"/>
+    </symbol>
+    <symbol id="i-tree" viewBox="0 0 24 24">
+      <path d="M12 22v-7"/>
+      <path d="M8 22h8"/>
+      <path d="M12 3a5 5 0 0 0-4.7 3.3A4.5 4.5 0 0 0 8.5 15h7a4.5 4.5 0 0 0 1.2-8.7A5 5 0 0 0 12 3Z"/>
+    </symbol>
+    <symbol id="i-search" viewBox="0 0 24 24">
+      <circle cx="11" cy="11" r="6.5"/>
+      <path d="m16 16 5 5"/>
+      <path d="M9 9h4M11 7v4"/>
+    </symbol>
+    <symbol id="i-heart" viewBox="0 0 24 24">
+      <path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8Z"/>
+    </symbol>
+    <symbol id="i-hands" viewBox="0 0 24 24">
+      <path d="m8 12 3 3a2.2 2.2 0 0 0 3.1 0l4.2-4.2"/>
+      <path d="m4.5 9.5 4.3-4.3a2.4 2.4 0 0 1 3.4 0l.8.8"/>
+      <path d="m19.5 9.5-4.3-4.3a2.4 2.4 0 0 0-3.4 0L11 6"/>
+      <path d="M3 11.5 8.5 17a3 3 0 0 0 4.2 0l.3-.3"/>
+      <path d="m21 11.5-5.5 5.5"/>
+    </symbol>
+    <symbol id="i-palette" viewBox="0 0 24 24">
+      <path d="M12 3a9 9 0 1 0 0 18h1.5a2 2 0 0 0 0-4H12a2 2 0 0 1 0-4h4a5 5 0 0 0 0-10h-4Z"/>
+      <circle cx="7.5" cy="10" r=".8" class="icon-fill"/>
+      <circle cx="9.5" cy="6.8" r=".8" class="icon-fill"/>
+      <circle cx="13.5" cy="6.2" r=".8" class="icon-fill"/>
+      <circle cx="16.5" cy="9" r=".8" class="icon-fill"/>
+    </symbol>
+    <symbol id="i-recycle" viewBox="0 0 24 24">
+      <path d="m10 4 2-2 3 5"/>
+      <path d="M12 2 9 7"/>
+      <path d="m19 10 3 1-3 5"/>
+      <path d="M22 11h-6"/>
+      <path d="m7 20-1 3-5-3"/>
+      <path d="M6 23 9 18"/>
+      <path d="M8.5 6H6a3 3 0 0 0-2.6 1.5L2 10"/>
+      <path d="m20 14-1.4 2.5A3 3 0 0 1 16 18h-3"/>
+      <path d="m5 18-1.4-2.5A3 3 0 0 1 3.6 12L5 10"/>
+    </symbol>
+    <symbol id="i-star" viewBox="0 0 24 24">
+      <path d="m12 2.5 2.9 5.9 6.5.9-4.7 4.6 1.1 6.5-5.8-3.1-5.8 3.1 1.1-6.5-4.7-4.6 6.5-.9L12 2.5Z"/>
+    </symbol>
+    <symbol id="i-family" viewBox="0 0 24 24">
+      <circle cx="8" cy="7" r="3"/>
+      <circle cx="17" cy="9" r="2.4"/>
+      <path d="M2.5 21v-2.5A5.5 5.5 0 0 1 8 13h0a5.5 5.5 0 0 1 5.5 5.5V21"/>
+      <path d="M14.5 14.5A4.5 4.5 0 0 1 21 18.5V21"/>
+    </symbol>
+    <symbol id="i-play" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="9"/>
+      <path d="m10 8 6 4-6 4V8Z"/>
+    </symbol>
+    <symbol id="i-print" viewBox="0 0 24 24">
+      <path d="M7 8V3h10v5"/>
+      <rect x="5" y="14" width="14" height="7" rx="1"/>
+      <path d="M5 17H3V10h18v7h-2"/>
+      <path d="M17 12h.01"/>
+    </symbol>
+    <symbol id="i-target" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="9"/>
+      <circle cx="12" cy="12" r="5"/>
+      <circle cx="12" cy="12" r="1.5"/>
+    </symbol>
+    <symbol id="i-leaf" viewBox="0 0 24 24">
+      <path d="M21 3C12 3 5 7 5 14a6 6 0 0 0 6 6c7 0 10-8 10-17Z"/>
+      <path d="M5 21c3-6 7-10 13-13"/>
+    </symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24">
+      <path d="M21 12a8 8 0 0 1-8 8H7l-4 2 1.3-4A8 8 0 1 1 21 12Z"/>
+      <path d="M8 12h.01M12 12h.01M16 12h.01"/>
+    </symbol>
+    <symbol id="i-game" viewBox="0 0 24 24">
+      <rect x="3" y="7" width="18" height="11" rx="5"/>
+      <path d="M8 10v5M5.5 12.5h5"/>
+      <circle cx="16" cy="11.5" r=".8" class="icon-fill"/>
+      <circle cx="18.5" cy="14" r=".8" class="icon-fill"/>
+    </symbol>
+    <symbol id="i-prayer" viewBox="0 0 24 24">
+      <path d="M8 4v7l-2 3"/>
+      <path d="M16 4v7l2 3"/>
+      <path d="M8 11 6.5 8.5A1.7 1.7 0 0 0 3.5 10L6 15l4 3v3"/>
+      <path d="M16 11l1.5-2.5a1.7 1.7 0 0 1 3 1.5L18 15l-4 3v3"/>
+    </symbol>
+    <symbol id="i-check" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="9"/>
+      <path d="m8 12 2.5 2.5L16.5 8"/>
+    </symbol>
+    <symbol id="i-refresh" viewBox="0 0 24 24">
+      <path d="M20 6v5h-5"/>
+      <path d="M4 18v-5h5"/>
+      <path d="M18.5 10A7 7 0 0 0 6 6.5L4 9"/>
+      <path d="M5.5 14A7 7 0 0 0 18 17.5L20 15"/>
+    </symbol>
+    <symbol id="i-save" viewBox="0 0 24 24">
+      <path d="M5 3h12l2 2v16H5V3Z"/>
+      <path d="M8 3v6h8V3"/>
+      <path d="M8 21v-7h8v7"/>
+    </symbol>
+    <symbol id="i-trash" viewBox="0 0 24 24">
+      <path d="M4 7h16"/>
+      <path d="M9 7V4h6v3"/>
+      <path d="m7 7 1 14h8l1-14"/>
+      <path d="M10 11v6M14 11v6"/>
+    </symbol>
+  </svg>
+
+  <div class="topbar">
+    Uma jornada de presença, natureza, valores e descobertas em família.
+  </div>
+
+  <header>
+    <div class="container nav">
+      <a href="ecovida-kids.html" class="brand" aria-label="EcoVida Kids">
+        <span class="brand-mark"><svg class="icon"><use href="#i-sprout"></use></svg></span>
+        <span>
+          EcoVida Kids
+          <small>Aprender vivendo</small>
+        </span>
+      </a>
+
+      <nav class="nav-links" aria-label="Navegação principal"><a href="ecovida-kids.html">Início</a><a href="animais.html">Animais</a><a href="plantas.html">Plantas</a><a href="descobertas.html">Descobertas</a><a href="diario.html">Diário</a>
+        <a href="#metodo">Método</a>
+        <a href="#jornada">21 dias</a>
+        <a href="#pais">Pais e filhos</a>
+        <a href="#seguranca">Segurança</a>
+        <a href="#jornada" class="nav-cta">Começar jornada</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="inicio">
+    <section class="hero">
+      <div class="container">
+        <div class="hero-grid">
+          <div>
+            <span class="tag"><svg class="icon"><use href="#i-leaf"></use></svg> Educação familiar ao ar livre</span>
+            <h1>21 dias para <span>aprender, conectar e crescer</span> em família.</h1>
+            <p>
+              Uma experiência prática criada para aproximar pais e filhos por meio da natureza,
+              da curiosidade, dos valores, do cuidado e das pequenas responsabilidades do cotidiano.
+            </p>
+
+            <div class="hero-actions">
+              <a href="#jornada" class="btn btn-primary"><svg class="icon"><use href="#i-play"></use></svg> Iniciar os 21 dias</a>
+              <button type="button" class="btn btn-secondary" onclick="window.print()"><svg class="icon"><use href="#i-print"></use></svg> Imprimir material</button>
+            </div>
+
+            <div class="stats">
+              <div class="stat"><strong>21</strong><span>dias de atividades</span></div>
+              <div class="stat"><strong>30 min</strong><span>por experiência</span></div>
+              <div class="stat"><strong>8</strong><span>pilares educativos</span></div>
+              <div class="stat"><strong>1</strong><span>família mais unida</span></div>
+            </div>
+          </div>
+
+          <div class="hero-card" role="img" aria-label="Criança e responsável explorando a natureza">
+            <div class="hero-card-content">
+              <h2>O mundo real também é uma sala de aprendizagem.</h2>
+              <p>
+                Uma árvore ensina paciência. Uma trilha ensina atenção. Uma horta ensina responsabilidade.
+                A convivência ensina amor.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="metodo">
+      <div class="container">
+        <div class="section-head center">
+          <div class="eyebrow">Método EcoVida Kids</div>
+          <h2>Aprendizado simples, seguro e conectado à vida</h2>
+          <p>
+            O programa foi pensado como complemento familiar. Ele valoriza presença, conversa,
+            brincadeira, natureza e desenvolvimento integral, sem substituir acompanhamentos
+            educacionais, médicos ou profissionais quando necessários.
+          </p>
+        </div>
+
+        <div class="principles">
+          <article class="principle">
+            <div class="principle-icon icon-badge"><svg class="icon"><use href="#i-tree"></use></svg></div>
+            <h3>Natureza</h3>
+            <p>Observar plantas, animais, água, terra, céu e ciclos naturais.</p>
+          </article>
+
+          <article class="principle">
+            <div class="principle-icon icon-badge"><svg class="icon"><use href="#i-search"></use></svg></div>
+            <h3>Curiosidade</h3>
+            <p>Fazer perguntas, comparar, investigar e aprender sem medo de errar.</p>
+          </article>
+
+          <article class="principle">
+            <div class="principle-icon icon-badge"><svg class="icon"><use href="#i-heart"></use></svg></div>
+            <h3>Emoções</h3>
+            <p>Nomear sentimentos, criar confiança e fortalecer a comunicação.</p>
+          </article>
+
+          <article class="principle">
+            <div class="principle-icon icon-badge"><svg class="icon"><use href="#i-hands"></use></svg></div>
+            <h3>Serviço</h3>
+            <p>Participar de pequenas tarefas e perceber que todos podem contribuir.</p>
+          </article>
+
+          <article class="principle">
+            <div class="principle-icon icon-badge"><svg class="icon"><use href="#i-palette"></use></svg></div>
+            <h3>Criatividade</h3>
+            <p>Desenhar, construir, imaginar, contar histórias e encontrar soluções.</p>
+          </article>
+
+          <article class="principle">
+            <div class="principle-icon icon-badge"><svg class="icon"><use href="#i-recycle"></use></svg></div>
+            <h3>Consciência</h3>
+            <p>Cuidar da água, separar resíduos e respeitar todos os seres vivos.</p>
+          </article>
+
+          <article class="principle">
+            <div class="principle-icon icon-badge"><svg class="icon"><use href="#i-star"></use></svg></div>
+            <h3>Valores</h3>
+            <p>Praticar respeito, coragem, honestidade, gratidão e responsabilidade.</p>
+          </article>
+
+          <article class="principle">
+            <div class="principle-icon icon-badge"><svg class="icon"><use href="#i-family"></use></svg></div>
+            <h3>Vínculo</h3>
+            <p>Criar memórias e fortalecer a presença verdadeira entre adulto e criança.</p>
+          </article>
+        </div>
+
+        <div class="notice">
+          <strong>Princípio central:</strong> não é necessário transformar cada momento em uma aula.
+          A criança aprende muito quando o adulto observa junto, escuta com atenção e permite que ela participe.
+        </div>
+      </div>
+    </section>
+
+    <section class="journey" id="jornada">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">Jornada principal</div>
+          <h2>Cronograma completo de 21 dias</h2>
+          <p>
+            Abra cada dia, realize a experiência e marque como concluída. O progresso fica salvo
+            automaticamente neste aparelho.
+          </p>
+        </div>
+
+        <div class="progress-shell">
+          <div class="progress-meta">
+            <span id="progressText">0 de 21 dias concluídos</span>
+            <button type="button" class="btn btn-secondary" onclick="resetProgress()"><svg class="icon"><use href="#i-refresh"></use></svg> Reiniciar progresso</button>
+          </div>
+          <div class="progress-bar" aria-label="Progresso da jornada">
+            <div class="progress-fill" id="progressFill"></div>
+          </div>
+        </div>
+
+        <div class="days-grid" id="daysGrid"></div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">Ritual diário</div>
+          <h2>Uma rotina leve para cada encontro</h2>
+        </div>
+
+        <div class="routine-grid">
+          <article class="info-card">
+            <h3>1. Presença — 3 minutos</h3>
+            <ul>
+              <li>Guardar o celular.</li>
+              <li>Respirar devagar.</li>
+              <li>Perguntar: “Como você está hoje?”</li>
+            </ul>
+          </article>
+
+          <article class="info-card">
+            <h3>2. Exploração — 15 a 25 minutos</h3>
+            <ul>
+              <li>Apresentar a missão.</li>
+              <li>Deixar a criança tocar e observar.</li>
+              <li>Evitar entregar todas as respostas.</li>
+            </ul>
+          </article>
+
+          <article class="info-card">
+            <h3>3. Encerramento — 5 minutos</h3>
+            <ul>
+              <li>Conversar sobre a descoberta.</li>
+              <li>Registrar com desenho ou foto.</li>
+              <li>Agradecer pelo momento vivido.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="pais">
+      <div class="container">
+        <div class="section-head center">
+          <div class="eyebrow">Pais e filhos</div>
+          <h2>Ensinar também é aprender a estar presente</h2>
+        </div>
+
+        <div class="parent-child">
+          <div class="quote-card">
+            <blockquote>
+              “A criança não precisa de um adulto que saiba tudo. Ela precisa de alguém disposto a descobrir o mundo ao seu lado.”
+            </blockquote>
+            <p>
+              Valorize perguntas, tentativas e sentimentos. Corrija com calma e demonstre pelo exemplo
+              aquilo que deseja ensinar.
+            </p>
+          </div>
+
+          <div class="journal">
+            <h3>Diário da família</h3>
+            <p>Use este espaço para guardar percepções da jornada.</p>
+
+            <label for="learning">O que descobrimos hoje?</label>
+            <textarea id="learning" placeholder="Escreva uma pequena lembrança..."></textarea>
+
+            <label for="feeling">Como nos sentimos?</label>
+            <textarea id="feeling" placeholder="Exemplo: felizes, curiosos, cansados, orgulhosos..."></textarea>
+
+            <label for="nextStep">O que queremos repetir ou melhorar?</label>
+            <textarea id="nextStep" placeholder="Registre uma ideia para o próximo encontro..."></textarea>
+
+            <label for="memoryPhoto">Foto da lembrança</label>
+            <input id="memoryPhoto" type="file" accept="image/*">
+            <img id="journeyPhotoPreview" class="photo-preview" alt="Prévia da lembrança" hidden>
+            <div class="journal-actions">
+              <button class="btn btn-primary" type="button" onclick="saveJournal()"><svg class="icon"><use href="#i-save"></use></svg> Salvar anotações</button>
+              <button class="btn btn-secondary" type="button" onclick="clearJournal()"><svg class="icon"><use href="#i-trash"></use></svg> Limpar</button><a class="btn btn-secondary" href="diario.html">📖 Ver diário completo</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">Orientação para adultos</div>
+          <h2>Como conduzir as experiências</h2>
+        </div>
+
+        <div class="guides-grid">
+          <article class="info-card">
+            <h3>Faça perguntas abertas</h3>
+            <ul>
+              <li>“O que você percebeu?”</li>
+              <li>“Por que você acha que isso acontece?”</li>
+              <li>“Como poderíamos cuidar disso?”</li>
+            </ul>
+          </article>
+
+          <article class="info-card">
+            <h3>Respeite o ritmo</h3>
+            <ul>
+              <li>Uma criança pequena muda o foco rapidamente.</li>
+              <li>Encerre antes da atividade virar obrigação.</li>
+              <li>Repetir faz parte do aprendizado.</li>
+            </ul>
+          </article>
+
+          <article class="info-card">
+            <h3>Valorize o esforço</h3>
+            <ul>
+              <li>Elogie atenção, cuidado e persistência.</li>
+              <li>Evite comparar com outras crianças.</li>
+              <li>Mostre que errar ajuda a aprender.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="seguranca">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">Segurança em primeiro lugar</div>
+          <h2>Regras essenciais para rancho, trilhas e lagos</h2>
+        </div>
+
+        <div class="safety-grid">
+          <article class="info-card">
+            <h3>Água e lagos</h3>
+            <ul>
+              <li>Nunca deixar a criança sozinha perto da água.</li>
+              <li>Manter distância segura das margens escorregadias.</li>
+              <li>Usar equipamentos adequados em qualquer atividade aquática.</li>
+            </ul>
+          </article>
+
+          <article class="info-card">
+            <h3>Plantas e animais</h3>
+            <ul>
+              <li>Não ingerir frutas, folhas ou cogumelos sem identificação adulta segura.</li>
+              <li>Não tocar em animais silvestres.</li>
+              <li>Observar insetos sem provocar ou capturar.</li>
+            </ul>
+          </article>
+
+          <article class="info-card">
+            <h3>Trilhas e clima</h3>
+            <ul>
+              <li>Usar calçado fechado, água, proteção solar e repelente apropriado.</li>
+              <li>Evitar trilhas em chuva forte ou tempestades.</li>
+              <li>Manter a criança sempre ao alcance do adulto.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h2>EcoVida Kids</h2>
+          <p>
+            Educação familiar, natureza, consciência e vínculo para formar crianças curiosas,
+            responsáveis e capazes de cuidar de si, das pessoas e do mundo.
+          </p>
+        </div>
+        <div>
+          <strong>Instituto EcoVida</strong>
+          <p>Esperança, dignidade, responsabilidade e transformação social.</p>
+        </div>
+      </div>
+
+      <div class="footer-note">
+        Material educativo complementar. Adapte as propostas à idade, ao desenvolvimento,
+        à saúde e às condições reais de segurança da criança.
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/diario-db.js"></script>
+  <script>
+
+    function icon(name) {
+      return `<svg class="icon" aria-hidden="true"><use href="#i-${name}"></use></svg>`;
+    }
+
+    const days = [
+      {
+        title: "Meu lugar no mundo",
+        theme: "Pertencimento e reconhecimento do ambiente",
+        objective: "Reconhecer o rancho como um espaço de convivência, cuidado e descoberta.",
+        activity: "Façam uma caminhada curta pelo espaço. Escolham três lugares: um bonito, um curioso e um que precisa de cuidado.",
+        questions: ["Qual lugar você mais gostou?", "O que vive ou cresce aqui?", "Como podemos cuidar deste espaço?"],
+        play: "Criem um nome especial para cada lugar escolhido.",
+        value: "Pertencimento",
+        reflection: "Eu faço parte deste lugar e posso ajudar a cuidar dele."
+      },
+      {
+        title: "Caçadores de cores",
+        theme: "Cores, comparação e atenção",
+        objective: "Identificar cores e perceber suas variações na natureza.",
+        activity: "Procurem elementos verdes, amarelos, marrons, vermelhos e azuis. Não arranquem plantas; observem e fotografem.",
+        questions: ["Qual cor apareceu mais?", "Todas as folhas têm o mesmo verde?", "Que cor foi mais difícil encontrar?"],
+        play: "Ganha um ponto simbólico a cada nova tonalidade encontrada.",
+        value: "Atenção",
+        reflection: "Quando observo com calma, descubro coisas que antes não via."
+      },
+      {
+        title: "A vida de uma semente",
+        theme: "Plantas e ciclo de crescimento",
+        objective: "Entender que plantas começam pequenas e precisam de cuidados.",
+        activity: "Plantem uma semente em um vaso ou espaço permitido. Marquem o local e combinem quem irá regá-la.",
+        questions: ["O que uma semente precisa?", "Quanto tempo ela levará para crescer?", "O que acontece se faltar água?"],
+        play: "Façam movimentos corporais imitando uma semente virando planta.",
+        value: "Paciência",
+        reflection: "Crescer leva tempo, cuidado e constância."
+      },
+      {
+        title: "Texturas da natureza",
+        theme: "Percepção sensorial",
+        objective: "Desenvolver vocabulário e percepção tátil.",
+        activity: "Toquem com cuidado em cascas, folhas caídas, pedras e terra. Descrevam: liso, áspero, macio, seco ou úmido.",
+        questions: ["Qual textura foi mais agradável?", "O que era mais áspero?", "A terra estava seca ou molhada?"],
+        play: "Com os olhos fechados e supervisão, adivinhar um objeto seguro pelo toque.",
+        value: "Curiosidade",
+        reflection: "Meu corpo me ajuda a conhecer o mundo."
+      },
+      {
+        title: "A árvore amiga",
+        theme: "Árvores e observação",
+        objective: "Reconhecer partes básicas de uma árvore e sua importância.",
+        activity: "Escolham uma árvore. Observem raízes visíveis, tronco, galhos, folhas e sombra. Façam um desenho.",
+        questions: ["Quem usa essa árvore como casa?", "Por que ela tem raízes?", "Como ela ajuda o ambiente?"],
+        play: "Tentar abraçar o tronco e comparar seu tamanho com o corpo.",
+        value: "Respeito",
+        reflection: "As árvores oferecem muito e pedem cuidado em troca."
+      },
+      {
+        title: "Pequenos trabalhadores",
+        theme: "Insetos e cooperação",
+        objective: "Observar insetos com respeito e perceber formas de cooperação.",
+        activity: "Procurem formigas ou outros pequenos insetos sem tocar. Observem seus caminhos e comportamentos.",
+        questions: ["Eles trabalham sozinhos ou juntos?", "O que estão carregando?", "Por que não devemos machucá-los?"],
+        play: "Transportar pequenas folhas caídas em equipe, como as formigas.",
+        value: "Cooperação",
+        reflection: "Juntos conseguimos fazer tarefas maiores."
+      },
+      {
+        title: "Sabores da horta",
+        theme: "Alimentação e origem dos alimentos",
+        objective: "Relacionar alimentos com plantas e cuidados agrícolas.",
+        activity: "Visitem a horta. Identifiquem verduras e frutas conhecidas. Só provem alimentos autorizados, lavados e seguros.",
+        questions: ["Qual alimento cresce debaixo da terra?", "Qual nasce em árvore?", "Qual você gostaria de ajudar a colher?"],
+        play: "Separar imagens ou alimentos em frutas, verduras e legumes.",
+        value: "Gratidão",
+        reflection: "Muitas pessoas e elementos da natureza colaboram para que o alimento chegue até nós."
+      },
+      {
+        title: "Guardião da água",
+        theme: "Água e responsabilidade",
+        objective: "Compreender que a água é essencial e deve ser preservada.",
+        activity: "Observem um ponto de água mantendo distância segura. Depois identifiquem três maneiras de economizar água.",
+        questions: ["Quem precisa de água?", "A água do lago é igual à água de beber?", "Como evitamos desperdício?"],
+        play: "Fazer uma missão de fechar corretamente torneiras e procurar vazamentos com um adulto.",
+        value: "Responsabilidade",
+        reflection: "Cuidar da água é cuidar da vida."
+      },
+      {
+        title: "Mapa do explorador",
+        theme: "Espaço e orientação",
+        objective: "Desenvolver noções de localização e representação.",
+        activity: "Desenhem um mapa simples do rancho, marcando casa, árvore especial, horta, trilha e lago.",
+        questions: ["O que fica perto da casa?", "Qual caminho é mais curto?", "Que lugar não pode ser visitado sem adulto?"],
+        play: "Criar uma pequena caça ao tesouro em área segura.",
+        value: "Organização",
+        reflection: "Quando conhecemos o caminho, caminhamos com mais segurança."
+      },
+      {
+        title: "Orquestra da natureza",
+        theme: "Sons e escuta",
+        objective: "Treinar silêncio, concentração e percepção auditiva.",
+        activity: "Sentem-se por dois minutos em silêncio. Contem quantos sons diferentes conseguem perceber.",
+        questions: ["Qual som estava mais perto?", "Qual era natural?", "Havia algum som feito por pessoas ou máquinas?"],
+        play: "Imitar sons de pássaros, vento, água e folhas.",
+        value: "Escuta",
+        reflection: "Ouvir bem também é uma forma de respeitar."
+      },
+      {
+        title: "Nuvens e histórias",
+        theme: "Imaginação e clima",
+        objective: "Observar o céu e desenvolver linguagem criativa.",
+        activity: "Deitem ou sentem em local seguro e observem as nuvens. Inventem personagens e uma história curta.",
+        questions: ["As nuvens estão rápidas ou lentas?", "Que forma você percebe?", "O céu está avisando alguma mudança no tempo?"],
+        play: "Cada pessoa acrescenta uma frase à história.",
+        value: "Imaginação",
+        reflection: "A criatividade transforma o que vemos em novas possibilidades."
+      },
+      {
+        title: "Missão sem lixo",
+        theme: "Resíduos e cuidado coletivo",
+        objective: "Entender que espaços compartilhados precisam de cuidado.",
+        activity: "Com luvas e supervisão, recolham apenas resíduos comuns e seguros em uma pequena área. Separem recicláveis.",
+        questions: ["De onde veio esse lixo?", "O que poderia ser reciclado?", "Como evitar que volte a acontecer?"],
+        play: "Cronometrar uma missão curta de organização, sem competir por velocidade.",
+        value: "Cuidado",
+        reflection: "Um lugar melhor começa com pequenas atitudes."
+      },
+      {
+        title: "Medindo o mundo",
+        theme: "Matemática prática",
+        objective: "Comparar tamanhos, quantidades e distâncias.",
+        activity: "Meçam objetos usando passos, palmos ou barbante: banco, folha grande, tronco ou canteiro.",
+        questions: ["Qual objeto é maior?", "Quantos passos existem até a árvore?", "O resultado muda entre adulto e criança?"],
+        play: "Adivinhar a medida antes de conferir.",
+        value: "Precisão",
+        reflection: "Medir ajuda a entender e organizar o mundo."
+      },
+      {
+        title: "Casa dos animais",
+        theme: "Habitats",
+        objective: "Perceber que cada ser vivo necessita de um ambiente adequado.",
+        activity: "Procurem, sem tocar, sinais de moradia animal: ninhos, teias, buracos, pegadas ou folhas comidas.",
+        questions: ["Quem pode viver aqui?", "O que esse animal precisa?", "Como observar sem destruir sua casa?"],
+        play: "Construir uma casa imaginária para um animal usando desenho.",
+        value: "Empatia",
+        reflection: "Todo ser vivo merece espaço e respeito."
+      },
+      {
+        title: "A força da equipe",
+        theme: "Cooperação familiar",
+        objective: "Aprender que tarefas ficam melhores quando são divididas.",
+        activity: "Escolham uma tarefa real e curta: regar, guardar materiais leves, organizar frutas ou varrer um pequeno espaço.",
+        questions: ["Qual parte você conseguiu fazer?", "Como ajudamos um ao outro?", "O que ficou melhor depois do trabalho?"],
+        play: "Criar um cumprimento especial da equipe da família.",
+        value: "Colaboração",
+        reflection: "Em família, cada ajuda tem valor."
+      },
+      {
+        title: "Coragem com cuidado",
+        theme: "Autoconfiança e limites",
+        objective: "Diferenciar coragem de imprudência.",
+        activity: "Escolham um pequeno desafio seguro: caminhar por um trecho novo acompanhado, tocar uma textura diferente ou falar sobre um medo.",
+        questions: ["O que dá um pouco de medo?", "O que deixa essa atividade segura?", "Quando devemos pedir ajuda?"],
+        play: "Criar a frase: “Eu posso tentar com calma e pedir ajuda.”",
+        value: "Coragem",
+        reflection: "Ser corajoso também significa reconhecer limites."
+      },
+      {
+        title: "Meu corpo em movimento",
+        theme: "Coordenação e saúde",
+        objective: "Explorar equilíbrio, coordenação e consciência corporal.",
+        activity: "Montem um circuito seguro: caminhar em linha, passar ao redor de árvores, pular marcas no chão e equilibrar um objeto leve.",
+        questions: ["Qual movimento foi mais fácil?", "O que exigiu mais atenção?", "Como o corpo avisa quando precisa descansar?"],
+        play: "Imitar movimentos de animais.",
+        value: "Autocuidado",
+        reflection: "Meu corpo merece movimento, descanso, água e proteção."
+      },
+      {
+        title: "Contador de histórias",
+        theme: "Linguagem e memória",
+        objective: "Organizar acontecimentos em começo, meio e fim.",
+        activity: "Escolham uma descoberta dos dias anteriores e criem uma história com personagem, desafio e solução.",
+        questions: ["Quem é o personagem?", "O que aconteceu?", "Como ele resolveu o problema?"],
+        play: "Representar a história com gestos ou bonecos.",
+        value: "Expressão",
+        reflection: "Quando contamos histórias, organizamos lembranças e sentimentos."
+      },
+      {
+        title: "Dia da gentileza",
+        theme: "Convivência e serviço",
+        objective: "Praticar atitudes concretas de cuidado com outras pessoas.",
+        activity: "Escolham três gestos: ajudar alguém, agradecer, dividir algo, oferecer água ou fazer um desenho de carinho.",
+        questions: ["Como a pessoa reagiu?", "Como você se sentiu ajudando?", "Gentileza precisa ser grande?"],
+        play: "Criar cartões de agradecimento.",
+        value: "Bondade",
+        reflection: "Uma pequena gentileza pode transformar o dia de alguém."
+      },
+      {
+        title: "Minha pequena criação",
+        theme: "Planejamento e criatividade",
+        objective: "Planejar e concluir um pequeno projeto.",
+        activity: "Criem algo com materiais seguros: colagem de folhas caídas, desenho do rancho, móbile simples ou exposição de pedras.",
+        questions: ["Qual é sua ideia?", "Que materiais serão necessários?", "O que você mais gostou no resultado?"],
+        play: "Montar uma exposição para a família.",
+        value: "Persistência",
+        reflection: "Uma ideia cresce quando damos atenção e trabalho a ela."
+      },
+      {
+        title: "Celebração dos guardiões",
+        theme: "Revisão, gratidão e compromisso",
+        objective: "Reconhecer aprendizados e celebrar a jornada.",
+        activity: "Revisem desenhos, fotos e lembranças. Escolham três aprendizados e façam um certificado simbólico de Guardião EcoVida.",
+        questions: ["Qual foi seu dia favorito?", "O que você aprendeu a cuidar?", "Qual atividade devemos continuar fazendo?"],
+        play: "Fazer uma cerimônia familiar com abraço, aplauso e entrega do certificado.",
+        value: "Gratidão",
+        reflection: "Eu cresci, aprendi e posso continuar cuidando do mundo todos os dias."
+      }
+    ];
+
+    const grid = document.getElementById("daysGrid");
+    const storageKey = "ecovidaKidsProgressV1";
+
+    function getProgress() {
+      try {
+        return JSON.parse(localStorage.getItem(storageKey)) || [];
+      } catch {
+        return [];
+      }
+    }
+
+    function renderDays() {
+      const progress = getProgress();
+
+      grid.innerHTML = days.map((day, index) => {
+        const dayNumber = index + 1;
+        const completed = progress.includes(dayNumber);
+
+        return `
+          <article class="day-card ${completed ? "completed" : ""}" data-day="${dayNumber}">
+            <div class="day-top" onclick="toggleDay(${dayNumber})" role="button" tabindex="0">
+              <div class="day-number">${dayNumber}</div>
+              <div class="day-title">
+                <h3>${day.title}</h3>
+                <small>${day.theme}</small>
+              </div>
+            </div>
+
+            <div class="day-body">
+              <div class="activity-block">
+                <strong class="activity-title">${icon("target")} Objetivo</strong>
+                <p>${day.objective}</p>
+              </div>
+
+              <div class="activity-block">
+                <strong class="activity-title">${icon("leaf")} Experiência prática</strong>
+                <p>${day.activity}</p>
+              </div>
+
+              <div class="activity-block">
+                <strong class="activity-title">${icon("chat")} Perguntas para conversar</strong>
+                <ul>${day.questions.map(q => `<li>${q}</li>`).join("")}</ul>
+              </div>
+
+              <div class="activity-block">
+                <strong class="activity-title">${icon("game")} Brincadeira</strong>
+                <p>${day.play}</p>
+              </div>
+
+              <div class="activity-block">
+                <strong class="activity-title">${icon("star")} Valor do dia</strong>
+                <p>${day.value}</p>
+              </div>
+
+              <div class="activity-block">
+                <strong class="activity-title">${icon("prayer")} Reflexão</strong>
+                <p>${day.reflection}</p>
+              </div>
+
+              <button type="button" class="complete-btn" onclick="toggleComplete(event, ${dayNumber})">
+                ${completed ? `${icon("check")} Dia concluído` : `${icon("check")} Marcar como concluído`}
+              </button>
+            </div>
+          </article>
+        `;
+      }).join("");
+
+      updateProgress();
+    }
+
+    function toggleDay(dayNumber) {
+      const card = document.querySelector(`[data-day="${dayNumber}"]`);
+      card.classList.toggle("open");
+    }
+
+    function toggleComplete(event, dayNumber) {
+      event.stopPropagation();
+      let progress = getProgress();
+
+      if (progress.includes(dayNumber)) {
+        progress = progress.filter(item => item !== dayNumber);
+      } else {
+        progress.push(dayNumber);
+      }
+
+      localStorage.setItem(storageKey, JSON.stringify(progress));
+      renderDays();
+
+      const card = document.querySelector(`[data-day="${dayNumber}"]`);
+      if (card) card.classList.add("open");
+    }
+
+    function updateProgress() {
+      const completed = getProgress().length;
+      const percent = Math.round((completed / days.length) * 100);
+      document.getElementById("progressText").textContent = `${completed} de ${days.length} dias concluídos`;
+      document.getElementById("progressFill").style.width = `${percent}%`;
+    }
+
+    function resetProgress() {
+      const confirmed = confirm("Deseja realmente apagar todo o progresso da jornada?");
+      if (!confirmed) return;
+      localStorage.removeItem(storageKey);
+      renderDays();
+    }
+
+    const journalKey = "ecovidaKidsJournalV1";
+
+    function loadJournal() {
+      try {
+        const data = JSON.parse(localStorage.getItem(journalKey)) || {};
+        document.getElementById("learning").value = data.learning || "";
+        document.getElementById("feeling").value = data.feeling || "";
+        document.getElementById("nextStep").value = data.nextStep || "";
+      } catch {}
+    }
+
+    async function saveJournal() {
+      const learningValue = document.getElementById("learning").value.trim();
+      const feelingValue = document.getElementById("feeling").value.trim();
+      const nextValue = document.getElementById("nextStep").value.trim();
+      if (!learningValue && !feelingValue && !nextValue) {
+        alert("Escreva pelo menos uma lembrança antes de salvar.");
+        return;
+      }
+      const file = document.getElementById("memoryPhoto")?.files?.[0];
+      const photo = file ? await fileToDataURL(file) : "";
+      await addDiaryEntry({
+        experienceDate: new Date().toISOString().slice(0,10),
+        createdAt: new Date().toISOString(),
+        updatedAt: new Date().toISOString(),
+        title: "Página da Jornada EcoVida Kids",
+        learning: learningValue,
+        feeling: feelingValue,
+        nextStep: nextValue,
+        photo
+      });
+      localStorage.setItem(journalKey, JSON.stringify({
+        learning: learningValue,
+        feeling: feelingValue,
+        nextStep: nextValue
+      }));
+      alert("Nova página salva no Diário da Jornada.");
+      document.getElementById("memoryPhoto").value = "";
+      const pv=document.getElementById("journeyPhotoPreview"); if(pv){pv.hidden=true;pv.removeAttribute("src");}
+    }
+
+    function clearJournal() {
+      const confirmed = confirm("Deseja limpar as anotações do diário?");
+      if (!confirmed) return;
+
+      localStorage.removeItem(journalKey);
+      document.getElementById("learning").value = "";
+      document.getElementById("feeling").value = "";
+      document.getElementById("nextStep").value = "";
+    }
+
+    const journeyPhotoInput=document.getElementById("memoryPhoto");
+    if(journeyPhotoInput){journeyPhotoInput.addEventListener("change",async()=>{const f=journeyPhotoInput.files[0],pv=document.getElementById("journeyPhotoPreview");if(f&&pv){pv.src=await fileToDataURL(f);pv.hidden=false;}});}
+    renderDays();
+    loadJournal();
+  </script>
+</body>
+</html>

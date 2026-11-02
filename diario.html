@@ -1,0 +1,50 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Diário da Jornada | EcoVida Kids</title><link rel="stylesheet" href="assets/css/style.css"></head><body>
+<div class="topbar">Histórias reais vividas em família.</div>
+<header><div class="container nav"><a class="brand" href="ecovida-kids.html"><span class="brand-mark">🌱</span><span>EcoVida Kids<small>Aprender vivendo</small></span></a>
+<nav class="nav-links"><a href="ecovida-kids.html">Início</a><a href="animais.html">Animais</a><a href="plantas.html">Plantas</a><a href="descobertas.html">Descobertas</a><a href="diario.html">Diário</a><a href="jornada-21-dias.html" class="nav-cta">21 dias</a></nav></div></header>
+<main>
+<section><div class="container"><div class="section-head"><div class="eyebrow">Memórias da família</div><h1>Diário da Jornada</h1><p>Cada registro transforma a atividade do dia em uma página da história vivida pela família.</p></div>
+<div class="diary-layout">
+<form id="diaryForm" class="journal diary-form">
+<input type="hidden" id="entryId">
+<label for="entryDate">Data da experiência</label><input id="entryDate" type="date" required>
+<label for="activityTitle">Título da história</label><input id="activityTitle" placeholder="Ex.: O dia em que encontramos uma joaninha" required>
+<label for="learning">O que descobrimos?</label><textarea id="learning" placeholder="Conte o que aconteceu e o que foi aprendido..." required></textarea>
+<label for="feeling">Como nos sentimos?</label><textarea id="feeling" placeholder="Curiosos, felizes, orgulhosos..."></textarea>
+<label for="nextStep">O que queremos repetir ou melhorar?</label><textarea id="nextStep" placeholder="Registre o próximo passo..."></textarea>
+<label for="memoryPhoto">Foto da lembrança</label><input id="memoryPhoto" type="file" accept="image/*">
+<img id="photoPreview" class="photo-preview" alt="Prévia da foto" hidden>
+<p class="form-help">A foto é salva neste navegador. Imagens muito grandes podem ocupar bastante espaço; prefira fotos comuns do celular.</p>
+<div class="journal-actions"><button class="btn btn-primary" type="submit">💾 Salvar página da história</button><button class="btn btn-secondary" type="button" id="cancelEdit" hidden>Cancelar edição</button></div>
+</form>
+<div><div class="progress-shell"><div class="progress-meta"><span><strong id="entryCount">0</strong> páginas registradas</span><button class="btn btn-secondary" onclick="window.print()">🖨 Imprimir diário</button></div></div>
+<div id="diaryList" class="diary-list"></div></div>
+</div></div></section></main>
+<footer class="footer"><div class="container"><h2>EcoVida Kids</h2><p>As melhores histórias são aquelas que a família vive junta.</p></div></footer>
+<script src="assets/js/diario-db.js"></script><script>
+const form=diaryForm,fileInput=memoryPhoto,preview=photoPreview;let currentPhoto="";
+entryDate.value=new Date().toISOString().slice(0,10);
+fileInput.addEventListener("change",async()=>{const f=fileInput.files[0];currentPhoto=await fileToDataURL(f);if(currentPhoto){preview.src=currentPhoto;preview.hidden=false;}});
+form.addEventListener("submit",async e=>{
+ e.preventDefault();
+ const existingId=entryId.value?Number(entryId.value):null;
+ const existing=existingId?await getDiaryEntry(existingId):null;
+ const chosenDate=new Date(entryDate.value+"T12:00:00");
+ const entry={id:existingId||undefined,experienceDate:entryDate.value,createdAt:existing?.createdAt||new Date().toISOString(),updatedAt:new Date().toISOString(),
+ title:activityTitle.value.trim(),learning:learning.value.trim(),feeling:feeling.value.trim(),nextStep:nextStep.value.trim(),
+ photo:currentPhoto||existing?.photo||""};
+ if(existingId)await updateDiaryEntry(entry);else{delete entry.id;await addDiaryEntry(entry);}
+ resetForm();await renderDiary();alert(existingId?"Registro atualizado.":"Nova página adicionada ao diário.");
+});
+function resetForm(){form.reset();entryId.value="";entryDate.value=new Date().toISOString().slice(0,10);currentPhoto="";preview.hidden=true;preview.removeAttribute("src");cancelEdit.hidden=true;}
+cancelEdit.addEventListener("click",resetForm);
+async function editEntry(id){const x=await getDiaryEntry(id);entryId.value=x.id;entryDate.value=x.experienceDate||x.createdAt.slice(0,10);activityTitle.value=x.title;learning.value=x.learning;feeling.value=x.feeling||"";nextStep.value=x.nextStep||"";currentPhoto=x.photo||"";if(currentPhoto){preview.src=currentPhoto;preview.hidden=false;}cancelEdit.hidden=false;window.scrollTo({top:0,behavior:"smooth"});}
+async function removeEntry(id){if(confirm("Excluir esta página do diário?")){await deleteDiaryEntry(id);await renderDiary();}}
+async function renderDiary(){const rows=await getDiaryEntries();entryCount.textContent=rows.length;
+ diaryList.innerHTML=rows.length?rows.map(x=>`<article class="story-card">${x.photo?`<img class="story-photo" src="${x.photo}" alt="Foto da lembrança">`:""}<div class="story-body"><div class="story-date">${new Date((x.experienceDate||x.createdAt.slice(0,10))+"T12:00:00").toLocaleDateString("pt-BR",{dateStyle:"long"})}</div><h2>${escapeHtml(x.title)}</h2><section><h3>O que descobrimos</h3><p>${nl2br(x.learning)}</p></section>${x.feeling?`<section><h3>Como nos sentimos</h3><p>${nl2br(x.feeling)}</p></section>`:""}${x.nextStep?`<section><h3>Próximo capítulo</h3><p>${nl2br(x.nextStep)}</p></section>`:""}<div class="story-actions"><button class="btn btn-secondary" onclick="editEntry(${x.id})">Editar</button><button class="btn btn-secondary" onclick="removeEntry(${x.id})">Excluir</button></div></div></article>`).join(""):'<div class="empty">O diário ainda está em branco. Registre a primeira história vivida em família.</div>';
+}
+function escapeHtml(s=""){return s.replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]));}
+function nl2br(s=""){return escapeHtml(s).replace(/\n/g,"<br>");}
+renderDiary();
+</script></body></html>

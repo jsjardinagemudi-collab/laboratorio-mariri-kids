@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="600" viewBox="0 0 900 600">
+<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#e8f7eb"/><stop offset="1" stop-color="#c8e9d0"/></linearGradient></defs>
+<rect width="900" height="600" rx="30" fill="url(#g)"/>
+<circle cx="760" cy="110" r="170" fill="#ffffff" opacity=".18"/>
+<circle cx="140" cy="510" r="210" fill="#ffffff" opacity=".12"/>
+<text x="450" y="315" text-anchor="middle" font-size="185">🦗</text>
+<text x="450" y="470" text-anchor="middle" font-family="Arial, sans-serif" font-weight="700" font-size="47" fill="#183522">Gafanhoto</text>
+</svg>
