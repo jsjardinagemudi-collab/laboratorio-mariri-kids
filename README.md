@@ -1,82 +1,40 @@
-# A Luz do Mariri Kids — Jardim das Descobertas
+# A Luz do Mariri Kids — Jardim das Descobertas V2
 
-**V1 · proposta inicial jogável · 2 de novembro de 2026**
+Protótipo independente para crianças de 4–8 anos acompanhadas de um adulto. Evolução da V1, preservando mapa, arte, quatro aventuras originais, jardim, álbum e configurações.
 
-Um pequeno jardim para crianças de **4 a 8 anos**, acompanhadas por um responsável. A proposta é brincar, descobrir, cuidar e levar pequenos gestos para a vida. Este projeto é independente das versões do jogo para jovens e adultos.
+## Abrir e publicar
 
-## Começar em um minuto
+Extraia o ZIP e abra `index.html`. Não requer instalação ou compilação.
 
-1. Extraia o ZIP inteiro.
-2. Abra `index.html` no navegador. Mantenha `styles.css`, `js/` e `assets/` juntos.
-3. Toque em qualquer lugar do mapa. Não há ordem obrigatória.
-4. Conclua uma aventura, guarde a descoberta e use as sementes em **Meu jardim**.
+Para atualizar o repositório `laboratorio-mariri-kids`, envie o conteúdo desta pasta para a raiz do repositório, substituindo os arquivos da V1. Preserve a estrutura `assets/` e `js/`. O `index.html` deve ficar na raiz. Em GitHub Pages, mantenha `main` e `/(root)` como origem. A atualização depende da publicação do GitHub; este ZIP não altera o site automaticamente.
 
-Não precisa instalar pacotes nem criar conta. Os scripts usam caminhos relativos e funcionam sem etapa de compilação. Em alguns navegadores, o salvamento de arquivos abertos diretamente pelo computador é limitado; nesse caso, use o servidor opcional ou GitHub Pages.
+Servidor local opcional: `npm start` (Node.js). Testes: `npm test`.
 
-## O que já funciona
+## Novidades funcionais
 
-| Lugar | Brincadeira | Descoberta |
-|---|---|---|
-| Horta da Terra | Semear, regar e oferecer luz, em três passos | Cuidado com as plantas |
-| Lago da Água | Encontrar e recolher quatro objetos virtuais | Cuidado com a água |
-| Bosque do Ar | Jogo de memória com 3 ou 4 pares de animais | Observação e atenção |
-| Roda do Sol | Escolher como está se sentindo, ou passar, e conhecer um cuidado | Emoções e pedir companhia |
+- Entrada com seis personagens grandes e apelido opcional, editável pelo botão do personagem.
+- Horta com três canteiros: girassol e alface disponíveis; cenoura após uma variedade colhida; tomate após duas variedades.
+- Sequências ilustradas de terra, composto, semente ou muda, cobertura quando aplicável e água. Crescimento virtual de 30 segundos, inclusive fora da tela. Não há morte por ausência.
+- Cesta persistente; colheita por toque; três receitas sem faca/fogão: folhas frescas, cenoura lavada e salada com alface e tomate. Separar, lavar, misturar e servir. Ingredientes são consumidos somente ao servir.
+- Casa na árvore acessível no mapa e no jardim. Seis móveis, seis posições; escolher móvel e tocar no lugar. Compra única; reorganização gratuita. Um móvel substituído volta ao catálogo de móveis possuídos.
+- Memória com 6, 8, 12, 16 e 20 cartas. Complete um tamanho e guarde a descoberta para liberar o próximo. Responsáveis podem selecionar qualquer tamanho.
+- Quebra-cabeça do jardim com 4, 6, 9 e 12 peças: selecionar peça e tocar no encaixe correspondente, com imagem-guia. Progressão por conclusão.
+- Lago original preservado; perguntas ilustradas de rio, praia, insetos e mamíferos, com feedback educativo.
+- Amigo escolhido aparece na Roda do Sol. Conversas roteirizadas, sentimentos opcionais e possibilidade de pular. Não é chatbot nem avaliação psicológica.
+- Botões maiores, sequências de ícones, instruções faladas e botão para ouvir novamente. Voz levemente mais aguda, ritmo tranquilo; timbre depende do navegador e sistema, sem voz infantil gravada.
 
-- Mapa ilustrado com quatro lugares clicáveis e casa na árvore.
-- Seis companheiros animais para escolher, sem diferenças de poder.
-- Duas sementes na **primeira conclusão** de cada aventura; oito sementes no total.
-- Oito espaços decoráveis, quatro tipos de plantas, possibilidade de guardar e trocar plantas sem perder sementes.
-- Álbum com quatro lembranças e uma proposta de cuidado fora da tela para cada aventura.
-- Brincadeiras repetíveis, sem cobrança de frequência e sem cronômetro.
-- Leitura em voz alta opcional, caso o navegador tenha suporte.
-- Área dos responsáveis: quantidade de pares, movimentos reduzidos, exportação do progresso e reinício com confirmação.
-- Salvamento local e aviso quando o navegador não permite salvar.
+## Recursos e progresso
 
-## Novo repositório e GitHub Pages
+As quatro aventuras originais dão duas sementes na primeira conclusão. Novos selos de colheita, receita, habitat, tamanho de memória e quebra-cabeça dão duas sementes cada, uma única vez. Repetir brincadeiras continua disponível. Móveis e decoração usam sementes; conhecimento e selos nunca são consumidos. O girassol aparece na cesta como colheita botânica; não é ingrediente das receitas atuais.
 
-Nome sugerido: **a-luz-do-mariri-kids**.
+A V2 usa a chave local `a-luz-do-mariri-kids-v2` e importa automaticamente a V1 se não houver progresso V2. A migração exige o mesmo navegador e origem/endereço. A V1 permanece preservada na chave antiga. Dados não sincronizam entre dispositivos. Exportação JSON para cópia de segurança disponível; importação por interface não implementada.
 
-1. Crie seu novo repositório no GitHub.
-2. Envie **o conteúdo extraído do ZIP**, mantendo as pastas. Não envie apenas o ZIP: `index.html` precisa ficar na raiz do repositório.
-3. No repositório, abra **Settings → Pages**.
-4. Em **Build and deployment / Source**, selecione **Deploy from a branch**.
-5. Escolha a branch que recebeu os arquivos, normalmente `main`, e a pasta **/(root)**. Salve.
-6. Quando a publicação terminar, use o endereço mostrado pelo próprio GitHub.
+Apelido, personagem, conquistas, inventário, alimentos, cultivos e preferências ficam no navegador. Nenhuma resposta de sentimento, conversa ou perfil psicológico é salva. Não há cadastro, rastreamento, anúncios, compra real, competição, mensagens entre usuários ou conexão com servidores de IA.
 
-Guia oficial consultado: https://docs.github.com/pt/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site
+## Para quem acompanha
 
-Este pacote não contém credenciais, identificação do site anterior, endereço de repositório obrigatório ou configurações que alterem o site principal. O domínio do Instituto e o jogo adulto ficam independentes.
-
-## Desenvolvimento opcional
-
-Com Node instalado:
-
-```sh
-npm test
-npm run dev
-```
-
-O servidor opcional usa a porta 3000; `npm start` também aceita a variável `PORT`. Não há dependências externas. Não é necessário executar `npm install`.
+Ajude a criança a escolher um apelido, teste o áudio no aparelho e faça pausas. As atividades reais de cultivo e cozinha devem ter supervisão. O crescimento e as receitas são simplificações educativas. A voz pode não estar instalada ou disponível no navegador; ícones e textos continuam funcionando.
 
 ## Organização
 
-- `index.html`: mapa e estrutura da interface.
-- `styles.css`: aparência e ajustes para diferentes telas.
-- `js/content.js`: textos, animais, plantas e aventuras.
-- `js/engine.js`: regras, normalização dos dados e salvamento.
-- `js/app.js`: interação, painéis, minijogos e narração.
-- `assets/`: ilustração original e ícone provisório.
-- `tests/engine.test.cjs`: testes do progresso, recompensas e armazenamento.
-- `docs/CONCEITO.md`: proposta pedagógica e próximos passos.
-- `docs/VALIDACAO.md`: o que foi verificado e limites desta versão.
-- `docs/ARTE.md`: origem da arte e prompt utilizado.
-
-## Dados e limitações
-
-Somente o companheiro, as descobertas concluídas, as plantas e as preferências são salvos neste navegador, na chave `a-luz-do-mariri-kids-v1`. **Nenhuma resposta sobre sentimentos é armazenada.** A aplicação não envia dados para serviços próprios ou analytics. A voz é fornecida pelo navegador/sistema, cuja disponibilidade e funcionamento podem depender do dispositivo e da internet.
-
-Não há conta online, sincronização, multijogador, painel remoto para responsáveis, importação de backup nem aplicativo de loja. O arquivo JSON exportado serve como cópia técnica para uma futura restauração. O funcionamento offline foi pensado para os arquivos extraídos; não há service worker ou instalação PWA nesta V1.
-
-O foco é educativo. Não há substâncias, cerimônias, combate, sorteios, compras, anúncios, chat, ranking ou perfil psicológico. A área dos responsáveis organiza preferências; não é uma autenticação nem bloqueio parental seguro. O jogo não substitui acompanhamento profissional nem promete resultados terapêuticos.
-
-Antes de um lançamento infantil público, realizar testes acompanhados com famílias, revisar acessibilidade, conteúdo, privacidade e direitos de marca. A identidade Kids e os personagens animais são uma proposta inicial, não uma mudança da logo oficial do Instituto.
+`js/content.js`: conteúdo e catálogos. `js/engine.js`: estado, migração, recursos e regras. `js/app.js`: telas e interações. `styles.css`: visual responsivo. `tests/engine.test.cjs`: regressão do estado e novas regras. `docs/VALIDACAO.md`: verificações e limites da entrega.

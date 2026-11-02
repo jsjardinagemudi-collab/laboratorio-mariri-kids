@@ -47,7 +47,7 @@ test('armazenamento indisponível ou corrompido não impede brincar', () => {
   assert.deepEqual(E.normalize({ version: 999, completed: ['lago'] }), E.initial());
 });
 test('baralho de três ou quatro pares contém exatamente duas cartas por animal', () => {
-  for (const pairs of [3,4]) {
+  for (const pairs of [3,4,6,8,10]) {
     const deck = E.deck(pairs);
     assert.equal(deck.length, pairs * 2);
     assert.equal(new Set(deck.map(c => c.card)).size, pairs * 2);
@@ -65,3 +65,19 @@ test('arquivo de entrada e recursos locais existem; não dependem de CDN', () =>
   }
   assert.ok(fs.statSync(path.join(root, 'assets/jardim-descobertas.png')).size > 1000);
 });
+
+ test('migração V1 preserva conquistas, plantas e personagem',()=>{
+ const raw={version:1,avatar:'sapo',completed:['lago','plantar'],plants:['arvore'],settings:{voice:false,pairs:4}};
+ const loaded=E.load({getItem:k=>k.endsWith('v1')?JSON.stringify(raw):null});
+ assert.equal(loaded.state.version,2); assert.equal(loaded.state.avatar,'sapo'); assert.equal(E.balance(loaded.state),3); assert.equal(loaded.state.welcomed,true);
+ });
+ test('colheita respeita tempo e não duplica; cozinha consome ingredientes',()=>{
+ const s=E.initial();s.plots[0]={crop:'alface',readyAt:1000};
+ assert.equal(E.harvest(s,0,999),false);assert.equal(E.harvest(s,0,1000),true);assert.equal(E.harvest(s,0,1001),false);
+ assert.equal(s.basket.alface,1);assert.equal(E.cook(s,'salada'),false);assert.equal(E.cook(s,'folhas'),true);assert.equal(s.basket.alface,0);assert.equal(E.cook(s,'folhas'),false);
+ assert.deepEqual(E.normalize(s),s);
+ });
+ test('compra de móveis não duplica nem gasta progresso',()=>{
+ const s=E.initial(); assert.equal(E.buy(s,'bed'),false);E.complete(s,'lago');assert.equal(E.buy(s,'bed'),true);assert.equal(E.balance(s),0);assert.equal(E.buy(s,'bed'),false);assert.equal(s.completed.length,1);
+ s.room[0]='bed';assert.deepEqual(E.normalize(s),s);
+ });

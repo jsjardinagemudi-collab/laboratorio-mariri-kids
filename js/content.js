@@ -32,6 +32,25 @@
       { id: 'calmo', icon: '😌', name: 'Calmo', response: 'Que bom notar a calma. Vamos observar um pouquinho o mundo ao nosso redor?' }
     ]
   };
+  content.animals.push(
+    {id:'rabbit',icon:'🐰',name:'Coelho'}, {id:'bee',icon:'🐝',name:'Abelha'},
+    {id:'ladybug',icon:'🐞',name:'Joaninha'}, {id:'fish',icon:'🐠',name:'Peixe'},
+    {id:'cat',icon:'🐱',name:'Gato'}, {id:'crab',icon:'🦀',name:'Caranguejo'});
+  content.crops = [
+    {id:'girassol',icon:'🌻',name:'Girassol',unlock:0,steps:['terra','composto','semente','cobrir','agua'],tip:'O girassol forma sementes depois de florescer.'},
+    {id:'alface',icon:'🥬',name:'Alface',unlock:0,steps:['terra','composto','muda','agua'],tip:'A alface é uma folha que podemos comer. Aqui plantamos uma muda.'},
+    {id:'cenoura',icon:'🥕',name:'Cenoura',unlock:1,steps:['terra','composto','semente','cobrir','agua'],tip:'A parte alaranjada da cenoura cresce debaixo da terra: é uma raiz.'},
+    {id:'tomate',icon:'🍅',name:'Tomate',unlock:2,steps:['terra','composto','muda','agua'],tip:'O tomate é um fruto. Uma muda é uma plantinha que já começou a crescer.'}
+  ];
+  content.tools = {terra:['🟤','Terra'],composto:['🍂','Composto'],semente:['🌰','Semente'],cobrir:['🤲','Cobrir'],agua:['💧','Regar'],muda:['🌱','Muda']};
+  content.furniture = [{id:'bed',icon:'🛏️',name:'Cama',cost:2},{id:'table',icon:'🪑',name:'Mesa e cadeira',cost:2},{id:'rug',icon:'🟠',name:'Tapete do sol',cost:1},{id:'books',icon:'📚',name:'Estante de histórias',cost:2},{id:'toy',icon:'🧸',name:'Ursinho',cost:1},{id:'vase',icon:'🪴',name:'Vaso',cost:1}];
+  content.recipes = [{id:'salada',icon:'🥗',name:'Salada do jardim',needs:{alface:1,tomate:1}},{id:'cenoura',icon:'🥕',name:'Cenourinha lavada',needs:{cenoura:1}},{id:'folhas',icon:'🥬',name:'Folhinhas frescas',needs:{alface:1}}];
+  content.habitats = [
+    {id:'rio',icon:'🏞️',name:'Rio',question:'Quem vive na água do rio?',choices:[['🐟','Peixe',true],['🐰','Coelho',false],['🦋','Borboleta',false]],fact:'Muitos peixes vivem nos rios. Eles respiram na água usando brânquias.'},
+    {id:'praia',icon:'🏖️',name:'Praia',question:'Quem costuma caminhar na areia da praia?',choices:[['🐱','Gato',false],['🦀','Caranguejo',true],['🐄','Vaca',false]],fact:'Há caranguejos que vivem perto do mar e fazem tocas na areia.'},
+    {id:'insetos',icon:'🌼',name:'Jardim',question:'Qual destes animais é um inseto?',choices:[['🐸','Sapo',false],['🐝','Abelha',true],['🐢','Jabuti',false]],fact:'Insetos têm seis pernas. A abelha é um inseto e visita flores.'},
+    {id:'mamiferos',icon:'🌳',name:'Bosque',question:'Qual destes animais é um mamífero?',choices:[['🐦','Pássaro',false],['🐠','Peixe',false],['🐰','Coelho',true]],fact:'O coelho é um mamífero. Quando pequeno, ele se alimenta do leite da mãe.'}
+  ];
   root.KidsContent = content;
   if (typeof module !== 'undefined' && module.exports) module.exports = content;
 })(typeof window !== 'undefined' ? window : globalThis);

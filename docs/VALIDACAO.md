@@ -1,38 +1,27 @@
-# Verificação da V1 Kids
+# Validação — V2
 
-## Verificado automaticamente
+Data: 02/11/2026.
 
-Cinco testes passaram em `node --test tests/engine.test.cjs`:
+## Testes automáticos
 
-1. Cada aventura entrega duas sementes apenas uma vez. Decorar não apaga conquistas; guardar uma planta devolve a semente.
-2. O salvamento e a retomada preservam o jardim. A normalização remove campos desconhecidos, nomes e respostas emocionais.
-3. Armazenamento bloqueado ou corrompido retorna um estado jogável, sem interromper a aplicação.
-4. Os baralhos de três e quatro pares contêm exatamente duas cartas de cada animal.
-5. Os recursos referenciados pela página existem e são locais.
+8 testes Node aprovados: recompensas únicas; gasto sem perda de conquistas; persistência e sanitização; falha de armazenamento; baralhos de 3/4/6/8/10 pares; arquivos locais; migração da V1; colheita com relógio controlado, cozinha e compra de móveis. Verificação de sintaxe JavaScript aprovada.
 
-O JavaScript da interface também passou na verificação de sintaxe com `node --check js/app.js`.
+## Teste real no navegador
 
-## Verificado no navegador
+- Entrada com apelido fictício e seleção de Sapinho.
+- Plantio de alface com terra, composto, muda e água.
+- Crescimento real de 30 segundos enquanto outra atividade acontece.
+- Quebra-cabeça de quatro peças concluído; recompensa recebida.
+- Compra de cama e colocação na casa.
+- Colheita de alface; receita de folhas frescas pelos quatro passos até servir.
+- Configuração de dez pares e exibição de vinte cartas; duas cartas viradas.
+- Pergunta sobre insetos respondida e recompensa conferida.
+- Conversa da Roda do Sol: participação, pular sentimento, só ouvir e guardar descoberta.
+- Recarregar preservou apelido, móvel colocado e sementes.
+- Layout de 390×844 verificado em iframe com viewport próprio; vinte cartas visíveis em quatro colunas, sem sobreposição.
 
-- Mapa e arte carregando; composição de computador inspecionada visualmente.
-- Abertura da aventura da horta.
-- Tentativa fora da sequência recebe orientação; sequência semear, regar e dar luz conclui a atividade.
-- Recompensa de duas sementes e proposta de cuidado fora da tela.
-- Compra de um girassol e uma árvore, saldo atualizado e duas plantas no jardim.
-- Recarregar a página mantém a conquista e as plantas.
-- Abertura do lago com os quatro objetos e respectivos controles acessíveis.
+## Limites
 
-A sessão de prévia foi encerrada antes de concluir a revisão manual das outras três aventuras. Os demais fluxos estão implementados, mas não foram todos percorridos de ponta a ponta no navegador. A saída de voz e o uso em um aparelho celular real também ainda precisam de teste. Há estilos responsivos e suporte a movimentos reduzidos, mas isso não equivale a uma auditoria completa de acessibilidade.
+Não foi executada uma partida inteira de dez pares nem todos os quebra-cabeças e receitas no navegador. A estrutura dos baralhos até vinte cartas foi testada automaticamente. Não houve teste em aparelho físico, nem validação auditiva das vozes específicas de Android/iOS/Windows. A leitura usa Web Speech do dispositivo: o ajuste de ritmo/tom não garante um timbre infantil uniforme. Conteúdo visual novo usa ícones/emoji, cujo desenho depende do sistema; quebra-cabeças reutilizam a arte original do jardim. Não há dublagem gravada ou novos retratos ilustrados.
 
-## Roteiro para o primeiro teste acompanhado
-
-1. Abra `index.html` e deixe a criança escolher um companheiro.
-2. Concluam a horta e plantem uma decoração.
-3. No lago, encontrem os quatro objetos e guardem a descoberta.
-4. No bosque, procurem os pares sem limite de tempo.
-5. Na roda, escolham um sentimento ou “Prefiro só ouvir”. Todas as escolhas têm o mesmo valor.
-6. Visitem o álbum, recarreguem a página e confiram o progresso.
-7. Nas preferências dos responsáveis, experimentem três ou quatro pares e a leitura em voz alta.
-8. Encerrem com uma das propostas fora da tela. Observem onde a interface precisa de mais imagens, voz ou explicações.
-
-O jogo é um protótipo inicial para revisão com famílias. Não foi publicado automaticamente nem conectado a um repositório remoto nesta entrega.
+O ZIP é a entrega. Não foi publicado automaticamente no GitHub ou alterado o site existente. Não contém progresso de teste.

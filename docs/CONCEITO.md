@@ -1,3 +1,7 @@
+# Histórico de conceito da V1
+
+Este documento registra a proposta inicial. Para as funções atuais da V2, veja o README na raiz. O apelido opcional, casa, cozinha e progressão foram acrescentados na V2.
+
 # Proposta inicial — Jardim das Descobertas
 
 ## A ideia
