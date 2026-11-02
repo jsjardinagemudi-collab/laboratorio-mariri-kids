@@ -1,0 +1,11 @@
+{
+  "name": "a-luz-do-mariri-kids",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Jardim das Descobertas — protótipo infantil independente de A Luz do Mariri.",
+  "scripts": {
+    "dev": "node scripts/serve.cjs",
+    "start": "node scripts/serve.cjs",
+    "test": "node --test tests/engine.test.cjs"
+  }
+}
