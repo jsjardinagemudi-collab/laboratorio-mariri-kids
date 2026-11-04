@@ -16,7 +16,7 @@
   <a class="skip-link" href="#world">Ir para o jardim</a>
   <header class="topbar">
     <a class="brand" href="./index.html" aria-label="A Luz do Mariri Kids, início">
-      <span class="brand-mark" aria-hidden="true">✺</span>
+      <img class="brand-logo" src="assets/logo-oficial.png" alt="Logo A Luz do Mariri">
       <span>A LUZ DO MARIRI <strong>kids<span>·</span></strong></span>
     </a>
     <nav class="header-actions" aria-label="Seu jardim">
@@ -42,7 +42,7 @@
 
     <section class="world-column">
       <div class="world-head"><div><span class="eyebrow">SEU CANTINHO NA FLORESTA</span><h2 id="garden-stage">Um mundo para descobrir</h2></div><button class="text-button" data-action="help" aria-label="Como brincar">? <span>Como brincar</span></button></div>
-      <section class="world" id="world" tabindex="-1" aria-label="Mapa interativo do Jardim das Descobertas">
+      <nav class="region-nav" aria-label="Regiões"><button data-action="pan-region" data-id="jardim" aria-pressed="true">🌳 Jardim</button><button data-action="pan-region" data-id="vale" aria-pressed="false">🌈 Vale das Descobertas</button></nav><section class="world" id="world" tabindex="-1" aria-label="Mapa interativo do Jardim das Descobertas">
         <img class="world-art" src="assets/jardim-descobertas.png" alt="Jardim de floresta com uma casa na árvore ao centro, horta à esquerda, lago à direita, animais e uma roda de almofadas.">
         <div class="world-top-note"><span aria-hidden="true">✦</span> Toque em um lugar</div>
         <button class="map-pin earth" data-action="mission" data-id="plantar" aria-label="Horta da Terra: plantar uma semente"><span class="pin-symbol" aria-hidden="true">🌱</span><span class="pin-caption">Horta da Terra<span class="pin-check" id="check-plantar"></span></span></button>
@@ -53,12 +53,18 @@
         <div id="map-plants" class="map-plants" aria-hidden="true"></div>
         <div class="world-bottom-note" id="world-caption">Um pequeno gesto. Uma nova descoberta.</div>
       </section>
-      <section class="garden-strip" aria-label="Seu jardim e suas lembranças">
+      <section class="world vale-world" id="vale-world" hidden aria-label="Vale das Descobertas">
+<img class="world-art" src="assets/vale-descobertas.png" alt="Vale com fazendinha, escola, casa de jogos e um riacho.">
+<button class="map-pin farm-pin" data-action="farmyard"><span class="pin-symbol">🐄</span><span class="pin-caption">Fazendinha</span></button>
+<button class="map-pin school-pin" data-action="school"><span class="pin-symbol">🏫</span><span class="pin-caption">Escolinha</span></button>
+<button class="map-pin games-pin" data-action="games"><span class="pin-symbol">🎲</span><span class="pin-caption">Casa de Jogos</span></button>
+</section><nav class="world-tools"><button data-action="inventory">🎒 <small>Mochila</small></button><button data-action="chests">🎁 <small>Baús <b id="v3-chest-count">0</b></small></button><button data-action="pet-home"><span id="world-pet">🐶</span><small>Meu pet</small></button><button data-action="school">🏫 <small>Aprender</small></button></nav>
+<section class="garden-strip" aria-label="Seu jardim e suas lembranças">
         <button class="garden-cta" data-action="garden"><span class="strip-icon" aria-hidden="true">🌼</span><span><strong>Meu jardim</strong><small id="garden-small">Plante suas primeiras cores</small></span><span class="round-plus" aria-hidden="true">+</span></button>
         <span class="strip-divider" aria-hidden="true"></span>
         <button class="album-cta" data-action="album"><span class="strip-icon" aria-hidden="true">📖</span><span><strong>Álbum de descobertas</strong><small id="album-small">Cada aventura, uma lembrança</small></span></button>
       </section>
-      <p class="quiet-note">Feito para descobrir junto. Brinque com alguém que cuida de você. <span>JARDIM VIVO · V2</span></p>
+      <p class="quiet-note">Feito para descobrir junto. Brinque com alguém que cuida de você. <span>JARDIM VIVO · V3</span></p>
     </section>
   </main>
   <div id="storage-note" class="storage-note" hidden></div>

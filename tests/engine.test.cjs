@@ -34,7 +34,7 @@ test('retomada preserva o jardim e descarta dados desconhecidos ou sensíveis', 
   assert.deepEqual(cleaned.completed, ['lago']);
   assert.equal(cleaned.plants.length, 2);
   assert.equal(cleaned.avatar, 'jabuti');
-  assert.equal(cleaned.settings.pairs, 3);
+  assert.equal(cleaned.settings.pairs, 2);
   assert.equal(cleaned.settings.voice, false);
   assert.equal('feeling' in cleaned, false);
   assert.equal('name' in cleaned, false);
@@ -69,7 +69,7 @@ test('arquivo de entrada e recursos locais existem; não dependem de CDN', () =>
  test('migração V1 preserva conquistas, plantas e personagem',()=>{
  const raw={version:1,avatar:'sapo',completed:['lago','plantar'],plants:['arvore'],settings:{voice:false,pairs:4}};
  const loaded=E.load({getItem:k=>k.endsWith('v1')?JSON.stringify(raw):null});
- assert.equal(loaded.state.version,2); assert.equal(loaded.state.avatar,'sapo'); assert.equal(E.balance(loaded.state),3); assert.equal(loaded.state.welcomed,true);
+ assert.equal(loaded.state.version,3); assert.equal(loaded.state.avatar,'sapo'); assert.equal(E.balance(loaded.state),3); assert.equal(loaded.state.welcomed,true);
  });
  test('colheita respeita tempo e não duplica; cozinha consome ingredientes',()=>{
  const s=E.initial();s.plots[0]={crop:'alface',readyAt:1000};
@@ -81,3 +81,20 @@ test('arquivo de entrada e recursos locais existem; não dependem de CDN', () =>
  const s=E.initial(); assert.equal(E.buy(s,'bed'),false);E.complete(s,'lago');assert.equal(E.buy(s,'bed'),true);assert.equal(E.balance(s),0);assert.equal(E.buy(s,'bed'),false);assert.equal(s.completed.length,1);
  s.room[0]='bed';assert.deepEqual(E.normalize(s),s);
  });
+test('V2 migra preservando inventário, mobília, canteiros e nome',()=>{
+ const raw={version:2,avatar:'sapo',nickname:'Teste',welcomed:true,completed:['lago'],awards:[],plants:[],owned:['bed'],room:['bed',null,null,null,null,null],basket:{alface:2},plots:[null,null,{crop:'tomate',readyAt:123}],settings:{voice:false,pairs:4},harvested:[],meals:0};
+ const n=E.normalize(raw);assert.equal(n.version,3);assert.equal(n.room[0],'bed');assert.equal(n.nickname,'Teste');assert.equal(n.basket.alface,2);assert.deepEqual(n.plots[2],raw.plots[2]);assert.equal(n.plots.length,6);assert.equal(E.balance(n),0);
+});
+test('coleta requer cuidado, respeita descanso e não duplica',()=>{
+ const s=E.initial();assert.equal(E.farmCollect(s,'cow',99999),false);
+ for(const c of ['food','water','rest'])assert.equal(E.farmCare(s,'cow',c,100),true);
+ assert.equal(E.farmCollect(s,'cow',20099),false);assert.equal(E.farmCollect(s,'cow',20100),true);assert.equal(E.farmCollect(s,'cow',20101),false);assert.equal(s.basket.leite,1);assert.deepEqual(E.normalize(s),s);
+});
+test('baús fixos e confecção preservam sementes e presentes ao recarregar',()=>{
+ const s=E.initial();assert.equal(E.openChest(s,'c1'),false);E.award(s,'geo-biomas');E.award(s,'pet-food');const before=E.balance(s);assert.equal(E.openChest(s,'c1'),true);assert.equal(E.openChest(s,'c1'),false);assert.equal(E.balance(s),before);s.basket.la=2;assert.equal(E.craft(s,'blanket'),true);assert.equal(E.craft(s,'blanket'),false);assert.equal(s.basket.la,0);assert.deepEqual(E.normalize(s),s);
+});
+test('catálogo geográfico e respostas possuem referências locais válidas',()=>{
+ assert.equal(D.geography.biomas.length,6);assert.equal(D.geography.estados.length,27);
+ for(const list of Object.values(D.geography))for(const item of list)if(item.flag)assert.ok(fs.existsSync(path.join(__dirname,'../assets/bandeiras',item.flag)));
+ for(const list of [...Object.values(D.geoQuizzes),...D.subjects.flatMap(s=>s.levels),...Object.values(D.miniGames)])for(const q of list)assert.ok(q.choices[q.answer],q.prompt);
+});
