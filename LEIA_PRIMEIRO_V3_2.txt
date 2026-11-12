@@ -1,0 +1,29 @@
+A LUZ DO MARIRI KIDS — V3.2 • Casa ilustrada
+
+COMO ABRIR
+No computador: extraia todo o ZIP e abra index.html no navegador.
+No celular: prefira a versão publicada no GitHub Pages. O gerenciador de arquivos do Android pode não permitir carregar scripts locais.
+
+COMO ATUALIZAR O GITHUB
+Extraia o ZIP. Envie o conteúdo (index.html, assets, js, estilos e demais arquivos) para a raiz do mesmo repositório, substituindo os arquivos correspondentes. Não envie apenas o ZIP e não coloque tudo dentro de uma pasta extra.
+A publicação deve mostrar V3.2. O jogo não foi publicado automaticamente nesta entrega.
+
+PROGRESSO
+A chave de salvamento anterior foi preservada. O progresso permanece quando utilizado o mesmo navegador e endereço. Abrir um arquivo local ou outro domínio usa outro armazenamento. Não limpe os dados do navegador.
+
+IMPLEMENTADO
+- Quarto e sala com cenários ilustrados e seis posições interativas de decoração por cômodo.
+- Cozinha e jardim com novos cenários, mantendo receitas, plantio e cuidados existentes.
+- Doze móveis ilustrados no catálogo e no cenário: cama, mesa/cadeira, tapete, estante, ursinho, vaso, sofá, armário, bola, manta, lanterna e blocos.
+- Móveis mantêm preços, propriedade e salvamento. Escolha no catálogo e toque num lugar para colocar. Para guardar um móvel, toque nele sem outro móvel selecionado.
+- Interface geral com cores naturais, molduras de madeira, botões grandes e estados de seleção.
+- Cabeçalhos ilustrados de Fazendinha, Escolinha e Casa de Jogos usando o mapa existente.
+- Sistemas e páginas anteriores preservados; novos nomes de CSS/JS evitam cache antigo.
+
+LIMITES DESTA ETAPA
+A referência artística foi adaptada para cenários 2D com objetos independentes; não é um mundo 3D. A casa não tem ainda vista geral em corte nem caminhada entre os cômodos. Decoração usa posições fixas, sem arrastar livremente. Personagens, pets, vários ícones e minijogos mantêm arte anterior. Os mapas existentes foram preservados; não são mapas novos. Os outros ambientes ainda precisam de arte específica no mesmo nível da casa. Narração usa as vozes disponíveis no aparelho.
+
+VERIFICAÇÃO
+13 testes automatizados passaram: progresso, migração, economia, cultivo, receitas, cuidados, baús e recursos versionados. Navegação da casa e cozinha conferida em navegador; layout conferido em 390px de largura. Não testado em aparelho Android físico.
+
+Base: V3.1. Esta é uma entrega incremental, não substitui o projeto por um mockup.

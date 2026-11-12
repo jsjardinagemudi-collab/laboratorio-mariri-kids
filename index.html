@@ -5,24 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#173e35">
   <meta name="description" content="A Luz do Mariri Kids: um jardim de descobertas para brincar, aprender e cuidar. Protótipo para crianças de 4 a 8 anos, com acompanhamento de um responsável.">
-  <title>A Luz do Mariri Kids · Jardim das Descobertas</title>
+  <title>A Luz do Mariri Kids · V3.2 · Jardim das Descobertas</title>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css">
-  <script src="js/content.js" defer></script>
-  <script src="js/engine.js" defer></script>
-  <script src="js/app.js" defer></script>
+  <link rel="stylesheet" href="styles-v3-2.css">
+  <script src="js/content-v3-2.js" defer></script>
+  <script src="js/engine-v3-2.js" defer></script>
+  <script src="js/app-v3-2.js" defer></script>
 </head>
 <body>
+<div id="load-status" role="status" hidden style="padding:16px;background:#fff1bb;color:#283d33">Não foi possível carregar o jogo completo. Atualize a página. Se continuar, confira se as pastas e arquivos da V3.2 foram enviados juntos.</div>
+<script>window.setTimeout(function(){if(!window.KidsReady)document.getElementById('load-status').hidden=false},7000);</script>
   <a class="skip-link" href="#world">Ir para o jardim</a>
   <header class="topbar">
     <a class="brand" href="./index.html" aria-label="A Luz do Mariri Kids, início">
-      <img class="brand-logo" src="assets/logo-oficial.png" alt="Logo A Luz do Mariri">
+      <img class="brand-logo" width="52" height="52" style="width:52px;height:52px;max-width:52px;object-fit:contain;flex-shrink:0" src="assets/logo-oficial.png" alt="Logo A Luz do Mariri">
       <span>A LUZ DO MARIRI <strong>kids<span>·</span></strong></span>
     </a>
     <nav class="header-actions" aria-label="Seu jardim">
       <button class="pill seed-wallet" data-action="garden" aria-label="Minhas sementes e meu jardim"><span aria-hidden="true">🌱</span> <b id="seed-count">0</b><span class="wallet-label">sementes</span></button>
       <button class="icon-button" data-action="toggle-voice" id="voice-button" aria-label="Ativar leitura em voz alta" aria-pressed="false">🔇</button>
-      <button class="parent-button" data-action="parents"><span aria-hidden="true">⚙</span><span>Responsáveis</span></button>
+      <button class="parent-button" data-action="parents" aria-label="Configurações para responsáveis"><span aria-hidden="true">⚙</span><span>Responsáveis</span></button>
     </nav>
   </header>
 
@@ -31,7 +33,7 @@
       <div class="eyebrow"><span class="sun-dot" aria-hidden="true"></span> JARDIM DAS DESCOBERTAS</div>
       <h1>Vamos cuidar<br>do nosso <em>mundo?</em></h1>
       <p class="intro">Escolha um lugar e comece a brincar.</p>
-      <button class="explorer" data-action="avatar" aria-label="Escolher meu companheiro">
+      <button class="explorer" data-action="avatar" aria-label="Escolher meu personagem e pet">
         <span class="avatar-emoji" id="avatar-emoji" aria-hidden="true">🐢</span>
         <span><small>MEU PERSONAGEM</small><strong id="avatar-name">Jabuti</strong></span><span class="edit-dots" aria-hidden="true">•••</span>
       </button>
@@ -40,7 +42,7 @@
       <div class="new-nav"><button data-action="farm">🌱<small>Horta</small></button><button data-action="kitchen">🥗<small>Cozinha</small></button><button data-action="puzzles">🧩<small>Quebra-cabeças</small></button><button data-action="house">🏡<small>Minha casa</small></button></div><div class="journey-footer"><span aria-hidden="true">☀</span><p>Cada cuidado faz<br>o jardim florescer.</p></div>
     </aside>
 
-    <section class="world-column">
+    <section class="world-column"><div class="welcome-bar"><button data-action="avatar" class="welcome-profile" aria-label="Escolher personagem e pet"><span id="welcome-avatar"></span><span><small>VAMOS EXPLORAR</small><strong id="welcome-name">Meu personagem</strong></span><b>✎</b></button><span class="release-tag">V3.2</span></div>
       <div class="world-head"><div><span class="eyebrow">SEU CANTINHO NA FLORESTA</span><h2 id="garden-stage">Um mundo para descobrir</h2></div><button class="text-button" data-action="help" aria-label="Como brincar">? <span>Como brincar</span></button></div>
       <nav class="region-nav" aria-label="Regiões"><button data-action="pan-region" data-id="jardim" aria-pressed="true">🌳 Jardim</button><button data-action="pan-region" data-id="vale" aria-pressed="false">🌈 Vale das Descobertas</button></nav><section class="world" id="world" tabindex="-1" aria-label="Mapa interativo do Jardim das Descobertas">
         <img class="world-art" src="assets/jardim-descobertas.png" alt="Jardim de floresta com uma casa na árvore ao centro, horta à esquerda, lago à direita, animais e uma roda de almofadas.">
@@ -48,7 +50,7 @@
         <button class="map-pin earth" data-action="mission" data-id="plantar" aria-label="Horta da Terra: plantar uma semente"><span class="pin-symbol" aria-hidden="true">🌱</span><span class="pin-caption">Horta da Terra<span class="pin-check" id="check-plantar"></span></span></button>
         <button class="map-pin water" data-action="mission" data-id="lago" aria-label="Lago da Água: cuidar do lago"><span class="pin-symbol" aria-hidden="true">💧</span><span class="pin-caption">Lago da Água<span class="pin-check" id="check-lago"></span></span></button>
         <button class="map-pin air" data-action="mission" data-id="animais" aria-label="Bosque do Ar: encontrar pares de animais"><span class="pin-symbol" aria-hidden="true">🦋</span><span class="pin-caption">Bosque do Ar<span class="pin-check" id="check-animais"></span></span></button>
-        <button class="map-pin light" data-action="mission" data-id="sentir" aria-label="Roda do Sol: perceber como você se sente"><span class="pin-symbol" aria-hidden="true">☀️</span><span class="pin-caption">Roda do Sol<span class="pin-check" id="check-sentir"></span></span></button>
+        <button class="map-pin light" data-action="games" aria-label="Casa de Jogos e Roda do Sol"><span class="pin-symbol" aria-hidden="true">🎲</span><span class="pin-caption">Casa de Jogos<span class="pin-check" id="check-sentir"></span></span></button>
         <button class="treehouse-button" data-action="house" aria-label="Entrar na minha casa na árvore"><span id="map-avatar" aria-hidden="true">🐢</span><b>🚪 Entrar</b></button>
         <div id="map-plants" class="map-plants" aria-hidden="true"></div>
         <div class="world-bottom-note" id="world-caption">Um pequeno gesto. Uma nova descoberta.</div>
@@ -64,7 +66,7 @@
         <span class="strip-divider" aria-hidden="true"></span>
         <button class="album-cta" data-action="album"><span class="strip-icon" aria-hidden="true">📖</span><span><strong>Álbum de descobertas</strong><small id="album-small">Cada aventura, uma lembrança</small></span></button>
       </section>
-      <p class="quiet-note">Feito para descobrir junto. Brinque com alguém que cuida de você. <span>JARDIM VIVO · V3</span></p>
+      <p class="quiet-note">Feito para descobrir junto. Brinque com alguém que cuida de você. <span>JARDIM VIVO · V3.2</span></p>
     </section>
   </main>
   <div id="storage-note" class="storage-note" hidden></div>

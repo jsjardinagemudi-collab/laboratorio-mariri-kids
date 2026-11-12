@@ -1,4 +1,8 @@
-# A Luz do Mariri Kids — V3
+# A Luz do Mariri Kids — V3.1
+
+Leia primeiro LEIA_PRIMEIRO_V3_1.md para as correções, testes e instruções desta entrega.
+
+# Base e funções preservadas da V3
 
 Brincar para aprender. Aprender para cuidar. Cuidar para transformar.
 
