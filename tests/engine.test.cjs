@@ -98,3 +98,9 @@ test('catálogo geográfico e respostas possuem referências locais válidas',()
  for(const list of Object.values(D.geography))for(const item of list)if(item.flag)assert.ok(fs.existsSync(path.join(__dirname,'../assets/bandeiras',item.flag)));
  for(const list of [...Object.values(D.geoQuizzes),...D.subjects.flatMap(s=>s.levels),...Object.values(D.miniGames)])for(const q of list)assert.ok(q.choices[q.answer],q.prompt);
 });
+test('publicação V3.2 contém recursos versionados consistentes e logo limitada',()=>{
+ const root=path.resolve(__dirname,'..'),html=fs.readFileSync(path.join(root,'index.html'),'utf8');
+ for(const [a,b] of [['styles.css','styles-v3-2.css'],...['app','content','engine'].map(n=>['js/'+n+'.js','js/'+n+'-v3-2.js'])]){assert.ok(html.includes(b));assert.equal(fs.readFileSync(path.join(root,a),'utf8'),fs.readFileSync(path.join(root,b),'utf8'));}
+ assert.match(html,/class="brand-logo" width="52" height="52"/);
+ assert.equal(E.KEY,'a-luz-do-mariri-kids-v3');
+});
